@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taln"
+version = "0.0.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+authors = [
+  { name = "Sina Booeshaghi", email = "sinab@berkeley.edu" },
+]
+maintainers = [
+  { name = "Sina Booeshaghi", email = "sinab@berkeley.edu" },
+]
+
+dependencies = [
+    "tiktoken",
+    "pandas",
+    "ollama",
+    "unidecode",
+    "numpy",
+]
+
+keywords = [""]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Topic :: Utilities"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/sbooeshaghi/taln"
+
+[project.scripts]
+taln = "taln.main:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = ["tests", "tests.*"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.optional-dependencies]
+dev = [
+]
