@@ -66,8 +66,8 @@ def validate_taln_aln_args(parser, args):
     logging.info(f"{len(alns)} alignments found")
     if sng:
         alns = alns[0]
+
     if output:
-        # json dump
         with open(output, "w") as f:
             json.dump(alns, f, indent=4)
     else:

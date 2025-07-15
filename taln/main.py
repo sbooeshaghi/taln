@@ -3,6 +3,7 @@ import argparse
 import sys
 import logging
 from taln.taln_aln import setup_taln_aln_args, validate_taln_aln_args
+from taln.taln_light import setup_taln_light_args, validate_taln_light_args
 
 
 def main():
@@ -21,6 +22,7 @@ def main():
     # Setup the arguments for all subcommands
     command_to_parser = {
         "aln": setup_taln_aln_args(subparsers),
+        "light": setup_taln_light_args(subparsers),
     }
 
     # Show help when no arguments are given
@@ -45,6 +47,7 @@ def main():
     # Setup validator and runner for all subcommands (validate and run if valid)
     COMMAND_TO_FUNCTION = {
         "aln": validate_taln_aln_args,
+        "light": validate_taln_light_args,
     }
     COMMAND_TO_FUNCTION[sys.argv[1]](parser, args)
 
