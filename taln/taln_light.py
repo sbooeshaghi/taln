@@ -1,5 +1,5 @@
 from taln.taln_aln import align_ng
-
+from taln.utils import load_text
 
 # add functionality to check if the source and target are paths to files
 def setup_taln_light_args(parser):
@@ -11,7 +11,7 @@ def setup_taln_light_args(parser):
         "-s",
         "--source",
         type=str,
-        help="Source text to align",
+        help="Source text to align as str or .txt",
         required=True,
     )
     subparser.add_argument(
@@ -32,14 +32,14 @@ def setup_taln_light_args(parser):
     subparser.add_argument(
         "target",
         type=str,
-        help="Target text to align",
+        help="Target text to align as str or .txt",
     )
     return subparser
 
 
 def validate_taln_light_args(parser, args):
-    src = args.source
-    tgt = args.target
+    src = load_text(args.source)
+    tgt = load_text(args.target)
     ttype = args.tokenization_type
     alns = align_ng(src, tgt, ttype)
     output = args.output
