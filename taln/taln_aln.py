@@ -10,6 +10,8 @@ import json
 
 import logging
 
+from taln.utils import load_text
+
 logger = logging.getLogger(__name__)
 
 
@@ -24,7 +26,7 @@ def setup_taln_aln_args(parser):
         "-s",
         "--source",
         type=str,
-        help="Source text to align",
+        help="Source text to align as str or .txt",
         required=True,
     )
     subparser.add_argument(
@@ -50,14 +52,14 @@ def setup_taln_aln_args(parser):
     subparser.add_argument(
         "target",
         type=str,
-        help="Target text to align",
+        help="Target text to align as str or .txt",
     )
     return subparser
 
 
 def validate_taln_aln_args(parser, args):
-    src = args.source
-    tgt = args.target
+    src = load_text(args.source)
+    tgt = load_text(args.target)
     ttype = args.tokenization_type
     output = args.output
     sng = args.single
@@ -72,7 +74,7 @@ def validate_taln_aln_args(parser, args):
             json.dump(alns, f, indent=4)
     else:
         print(json.dumps(alns, indent=4))
-    return
+    pass
 
 
 def norm_text(text):
