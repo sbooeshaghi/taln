@@ -1,14 +1,13 @@
-from collections import defaultdict
 import difflib
-import tiktoken
-import unicodedata
-from unidecode import unidecode
-import re
-import numpy as np
-
 import json
-
 import logging
+import re
+import unicodedata
+from collections import defaultdict
+
+import numpy as np
+import tiktoken
+from unidecode import unidecode
 
 from taln.utils import load_text
 

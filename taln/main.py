@@ -1,9 +1,11 @@
-from . import __version__
 import argparse
-import sys
 import logging
+import sys
+
 from taln.taln_aln import setup_taln_aln_args, validate_taln_aln_args
 from taln.taln_light import setup_taln_light_args, validate_taln_light_args
+
+from . import __version__
 
 
 def main():

@@ -1,6 +1,7 @@
 from taln.taln_aln import align_ng
 from taln.utils import load_text
 
+
 # add functionality to check if the source and target are paths to files
 def setup_taln_light_args(parser):
     subparser = parser.add_parser(

@@ -19,25 +19,19 @@ maintainers = [
 
 dependencies = [
     "tiktoken",
-    "pandas",
-    "ollama",
     "unidecode",
     "numpy",
 ]
 
-keywords = [""]
-classifiers = [
-  "Development Status :: 5 - Production/Stable",
-  "Environment :: Console",
-  "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-  "Topic :: Scientific/Engineering :: Bio-Informatics",
-  "Topic :: Utilities"
+[project.optional-dependencies]
+dev = [
+    "ruff",
 ]
 
-[project.urls]
-"Homepage" = "https://github.com/sbooeshaghi/taln"
+[dependency-groups]
+dev = [
+    "ruff>=0.9.0",
+]
 
 [project.scripts]
 taln = "taln.main:main"
@@ -48,9 +42,6 @@ include-package-data = true
 [tool.setuptools.packages.find]
 exclude = ["tests", "tests.*"]
 
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.txt"] }
-
-[project.optional-dependencies]
-dev = [
-]
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501", "E203"]
