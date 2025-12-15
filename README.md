@@ -150,66 +150,64 @@ if alignments:
 
 ## Benchmarks
 
-We evaluated `taln` against standard alignment methods (LCS, difflib, naive substring matching) on the SQuAD QA dataset (69,775 question-answer-context triplets).
+We evaluated `taln` against standard alignment methods (LCS, difflib, naive substring matching) on the **BOAT dataset** (Berkeley Ordered Alignment of Text), derived from SQuAD v2.0.
 
-### Accuracy: Finding Exact Span Positions
+### BOAT Dataset
 
-| Method | Token-level | Whitespace-level |
-|--------|-------------|------------------|
-| **taln (custom)** | **95.0%** | **85.8%** |
-| LCS | 87.5% | 82.0% |
-| difflib | 93.0% | 84.7% |
-| Naive | 100.0%* | 100.0%* |
+| Subset | Samples | Unalignable | Mean Alignments | Source (chars/WS/tok) | Target (chars/WS/tok) |
+|--------|---------|-------------|-----------------|----------------------|----------------------|
+| Contiguous | 35,080 | 159 (0.4%) | 8.4 | 764 / 121 / 158 | 38 / 6 / 8 |
+| Non-contiguous | 35,080 | 198 (0.6%) | 7.0 | 764 / 121 / 158 | 33 / 5 / 7 |
 
-*Naive substring matching only works for contiguous spans that appear exactly as-is in the source.
+WS = whitespace (word-level) tokens; tok = subword tokens.
 
-### Text Reconstruction Accuracy
+### Contiguous Alignment Accuracy
 
-Percentage of cases where the reconstructed text exactly matches the target:
+| Method | Subword | Word-level |
+|--------|---------|------------|
+| Naive | **100.0%** | **100.0%** |
+| difflib | 99.9% | 95.3% |
+| **taln** | 99.4% | 92.3% |
+| LCS | 96.3% | 93.3% |
 
-| Method | Token-level | Whitespace-level |
-|--------|-------------|------------------|
-| **taln (custom)** | **96.1%** | **54.2%** |
-| LCS | 96.1% | 54.2% |
-| difflib | 96.1% | 53.8% |
-| Naive | 100.0%* | 100.0%* |
+### Non-contiguous Alignment Accuracy
 
-*Only succeeds on exact contiguous matches.
+| Method | Subword | Word-level |
+|--------|---------|------------|
+| **taln** | **98.3%** | 51.6% |
+| LCS | 98.0% | 52.0% |
+| difflib | 95.0% | 50.0% |
+| Naive | 0.5% | 0.6% |
 
-### Time Complexity
+Subword tokenization improves non-contiguous alignment accuracy by ~47% compared to word-level tokenization.
 
-The alignment time scales approximately as a power law with respect to the number of source tokens:
+### Runtime Scaling
 
-```
-Time (ms) = 0.0003 * n^1.50
-```
+Runtime scales as a power law with source length (in tokens):
 
-Where `n` is the number of tokens in the source text.
+| Method | Scaling |
+|--------|---------|
+| Naive | ~n^0.19 |
+| difflib | ~n^0.89 |
+| **taln** | ~n^0.96 |
+| LCS | ~n^1.00 |
 
-**Key findings:**
-- Sub-linear scaling in practice for typical document lengths (< 1000 tokens)
-- Efficient for real-time applications: ~0.5ms for 100-token contexts, ~5ms for 1000-token contexts
-- Comparable to LCS/difflib but captures more alignment cases
+At 1,000 tokens: difflib is ~5×10² slower than naive, taln is ~7×10² slower, and LCS is ~10³ slower.
 
-### Coverage
-
-`taln` achieves higher coverage (% of target tokens successfully aligned):
-
-- **Token-level**: ~95% of target tokens aligned vs ~87% for LCS
-- **Whitespace-level**: ~86% of target words aligned vs ~82% for LCS
-
-### Comparison Summary
+### Key Findings
 
 **taln advantages:**
 - Enumerates all valid alignments (not just the longest or first)
-- Handles non-contiguous spans better than LCS/difflib
-- Finds 95% of alignment positions that naive methods miss
-- Better coverage of target tokens
+- Handles non-contiguous spans as well as LCS/difflib under subword tokenization
+- Recovers 98.3% of non-contiguous alignments with subword tokenization
 
-**When to use naive/LCS/difflib:**
+**When to use naive alignment:**
 - When you only need contiguous exact matches
-- When you need guaranteed O(n*m) time bounds
-- When alignment path doesn't matter, only longest common subsequence
+- When speed is critical and spans are guaranteed contiguous
+
+**When subword tokenization helps:**
+- Scientific text with punctuation, symbols, or alphanumeric identifiers (e.g., gene names like "CD96+")
+- Text with parenthetical notes or abbreviations that interrupt phrases
 
 ## Use Cases
 
@@ -225,7 +223,7 @@ MIT License
 
 ## Author
 
-Sina Booeshaghi (sinab@berkeley.edu)
+Sina Booeshaghi
 
 ## Citation
 
@@ -235,7 +233,7 @@ If you use `taln` in your research, please cite:
 @software{taln,
   author = {Booeshaghi, Sina},
   title = {taln: Text Alignment for Non-contiguous Spans},
-  year = {2024},
-  url = {https://github.com/yourusername/taln}
+  year = {2025},
+  url = {https://github.com/sbooeshaghi/taln}
 }
 ```
