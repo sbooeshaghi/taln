@@ -94,7 +94,7 @@ def norm_text(text):
     if not isinstance(text, str):
         try:
             text = str(text)
-        except:
+        except Exception:
             return ""
 
     # Step 1: Unicode normalization to NFC form (composed form)
@@ -287,14 +287,12 @@ def group_tokens(grp, ngrams):
     tk_aln = []
     for aln_ngrams in grp:
         pos = aln_ngrams[0]["pos"]
-        nid = aln_ngrams[0]["ngram_id"]
 
         tks = []
         tks += ngrams[pos]["tks"]
 
         for ng in aln_ngrams[1:]:
             pos = ng["pos"]
-            nid = ng["ngram_id"]
             tks += [ngrams[pos]["tks"][-1]]
         tk_aln.append(tks)
     return tk_aln
@@ -321,18 +319,53 @@ def build_graph(ngrams, id_to_ngram):
 
 def align_ng(source, target, ttype="token"):
     k = 1
-    # if verbose:
-    #     print("source", source)
-    #     print("target", target)
-    #     print("-" * 80)
     ngram_to_id, id_to_ngram, ngram_id_to_pos, ngrams = build_index(source, k, ttype)
-    aln = align_target(target, ngram_to_id, ngram_id_to_pos, k, ttype)
 
+    aln = align_target(target, ngram_to_id, ngram_id_to_pos, k, ttype)
+    token_alns = []
     if len(aln) > 0:
         grp = group_ngrams(aln)
-        tks = group_tokens(grp, ngrams)
-        return tks
-    return []
+        token_alns = group_tokens(grp, ngrams)
+
+    # Tiktoken assigns different token IDs to the same characters at a word
+    # boundary: standalone "FOX" != mid-text " FOX".  Prepending a space to
+    # the target produces the mid-text tokenization, letting the first token
+    # match.  We run both and combine the results so the caller can pick the
+    # alignment with the best coverage.
+    if ttype == "token" and target and not target.startswith(" "):
+        aln_sp = align_target(" " + target, ngram_to_id, ngram_id_to_pos, k, ttype)
+        if len(aln_sp) > 0:
+            grp_sp = group_ngrams(aln_sp)
+            token_alns.extend(group_tokens(grp_sp, ngrams))
+
+    return token_alns if token_alns else []
+
+
+def align_ng_casefold(source, target, ttype="token"):
+    """Case-insensitive alignment: lowercases source and target, aligns, then
+    maps the matched character range back to the original (cased) source tokens.
+
+    Lowercasing can change token boundaries (e.g. "DUSP15" → D|US|P|15 but
+    "dusp15" → d|usp|15), so we map by character span rather than by token
+    start position."""
+    source_lower = source.lower()
+    target_lower = target.lower()
+
+    lower_alns = align_ng(source_lower, target_lower, ttype)
+    if not lower_alns:
+        return []
+
+    orig_tokens, _ = tokenize(source, ttype)
+
+    orig_alns = []
+    for aln in lower_alns:
+        start = aln[0]["start_idx"]
+        end = aln[-1]["end_idx"]
+        mapped = [t for t in orig_tokens if t["end_idx"] > start and t["start_idx"] < end]
+        if mapped:
+            orig_alns.append(mapped)
+
+    return orig_alns
 
 
 def reconstruct_target_by_token(source, pos, sep=""):
@@ -361,6 +394,10 @@ def align_difflib(source, target, ttype="token"):
             alignments.append(alignment)
     # flatten the list of lists
     alignments = [item for sublist in alignments for item in sublist]
+
+    # If nothing matched, return no alignments (not `[[]]`).
+    if len(alignments) == 0:
+        return []
 
     return [alignments]
 
@@ -397,4 +434,9 @@ def align_lcs(source, target, ttype="token"):
             j -= 1
 
     alignment.reverse()
+
+    # If nothing matched, return no alignments (not `[[]]`).
+    if len(alignment) == 0:
+        return []
+
     return [alignment]  # wrapped in a list to match your desired structure

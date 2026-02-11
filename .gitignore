@@ -39,3 +39,6 @@ data/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Environment variables (API keys)
+.env

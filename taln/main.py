@@ -3,6 +3,7 @@ import logging
 import sys
 
 from taln.taln_aln import setup_taln_aln_args, validate_taln_aln_args
+from taln.taln_extract import setup_taln_extract_args, validate_taln_extract_args
 from taln.taln_light import setup_taln_light_args, validate_taln_light_args
 
 from . import __version__
@@ -24,6 +25,7 @@ def main():
     # Setup the arguments for all subcommands
     command_to_parser = {
         "aln": setup_taln_aln_args(subparsers),
+        "extract": setup_taln_extract_args(subparsers),
         "light": setup_taln_light_args(subparsers),
     }
 
@@ -49,9 +51,10 @@ def main():
     # Setup validator and runner for all subcommands (validate and run if valid)
     COMMAND_TO_FUNCTION = {
         "aln": validate_taln_aln_args,
+        "extract": validate_taln_extract_args,
         "light": validate_taln_light_args,
     }
-    COMMAND_TO_FUNCTION[sys.argv[1]](parser, args)
+    COMMAND_TO_FUNCTION[args.command](parser, args)
 
 
 if __name__ == "__main__":

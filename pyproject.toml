@@ -21,6 +21,9 @@ dependencies = [
     "tiktoken",
     "unidecode",
     "numpy",
+    "anthropic>=0.30.0",
+    "python-dotenv>=1.0.0",
+    "json-repair>=0.30.0",
 ]
 
 [project.optional-dependencies]
