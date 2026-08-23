@@ -1,14 +1,23 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "taln"
-version = "0.0.0"
-description = ""
+version = "0.1.0"
+description = "Text alignment for contiguous and non-contiguous spans"
 readme = "README.md"
 requires-python = ">=3.12"
-license = { text = "MIT" }
+license = "MIT"
+keywords = ["alignment", "text mining", "tokenization", "information extraction"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Text Processing :: Linguistic",
+]
 
 authors = [
   { name = "Sina Booeshaghi", email = "sinab@berkeley.edu" },
@@ -21,20 +30,32 @@ dependencies = [
     "tiktoken",
     "unidecode",
     "numpy",
+]
+
+[project.optional-dependencies]
+extract = [
+    "anthropic>=0.30.0",
+    "python-dotenv>=1.0.0",
+    "json-repair>=0.30.0",
+]
+dev = [
+    "ruff",
+    "pytest",
     "anthropic>=0.30.0",
     "python-dotenv>=1.0.0",
     "json-repair>=0.30.0",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "ruff",
-]
-
 [dependency-groups]
 dev = [
+    "pytest>=8.0.0",
     "ruff>=0.9.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/sbooeshaghi/taln"
+Repository = "https://github.com/sbooeshaghi/taln"
+Issues = "https://github.com/sbooeshaghi/taln/issues"
 
 [project.scripts]
 taln = "taln.main:main"
@@ -43,7 +64,17 @@ taln = "taln.main:main"
 include-package-data = true
 
 [tool.setuptools.packages.find]
+include = ["taln", "taln.*"]
 exclude = ["tests", "tests.*"]
+
+[tool.ruff]
+extend-exclude = [
+    "analysis",
+    "data",
+    "docs/submissions",
+    "tests/archive",
+    "tests/papers",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I"]

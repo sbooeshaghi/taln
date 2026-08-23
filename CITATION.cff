@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use taln in your research, please cite it using this metadata."
+title: "taln: Text alignment for non-contiguous spans"
+type: software
+authors:
+  - family-names: Booeshaghi
+    given-names: A. Sina
+    email: sinab@berkeley.edu
+repository-code: "https://github.com/sbooeshaghi/taln"
+url: "https://github.com/sbooeshaghi/taln"
+license: MIT
+version: "0.1.0"

@@ -1,0 +1,119 @@
+\documentclass[10pt,onecolumn]{article}
+\usepackage[letterpaper,margin=0.75in]{geometry}
+\usepackage{natbib}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs} % for professional tables
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{rotating}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{titlesec}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+\usepackage[capitalize,noabbrev]{cleveref}
+
+\usepackage{balance}
+\usepackage[font=normalsize,labelfont=bf]{caption}
+
+\usepackage{authblk}
+
+% paragraph spacing + indent
+\setlength{\parskip}{4pt plus 2pt minus 1pt}
+\setlength{\parindent}{1.5em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%% Section adjustments, section spacing: {left}{before}{after}
+\titlespacing*{\section}{0pt}{1.0ex}{0.4ex}
+\titlespacing*{\subsection}{0pt}{1.6ex}{0.3ex}
+\titlespacing*{\subsubsection}{0pt}{0.2ex}{0.2ex}
+
+% --- Footer metadata ---
+\newcommand{\leadauthor}{Booeshaghi \& Streets}
+\newcommand{\repository}{BMC Bioinformatics}
+% --- Page style ---
+\pagestyle{fancy}
+\fancyhf{} % clear all
+
+% No header rule
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Footer text blocks
+\newcommand{\LeftFooter}{%
+ \footnotesize \leadauthor\ \textbar\ \repository\ \textbar\ \today%
+}
+
+\newcommand{\RightFooter}{%
+  \footnotesize \thepage\ of \pageref{LastPage}%
+}
+
+% Two-sided safe (works for one-sided too)
+% Works for one- or two-sided documents
+\fancyfoot[L]{\LeftFooter}
+\fancyfoot[R]{\RightFooter}
+
+% Plain style (first page)
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[L]{\LeftFooter}
+  \fancyfoot[R]{\RightFooter}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+
+% two column space
+\setlength{\columnsep}{18pt}
+
+%% Author stuff
+\date{}
+\title{Supplementary Note\\\textbf{Verifying LLM-extracted text with token alignment} }
+
+\author[1]{A.~Sina Booeshaghi\thanks{Corresponding author: sinab@berkeley.edu}}
+\author[1,2,3,4]{Aaron Streets}
+
+\affil[1]{\small Department of Bioengineering, University of California Berkeley, Berkeley, USA}
+\affil[2]{\small Center for Computational Biology, University of California, Berkeley, USA}
+\affil[3]{\small Biophysics Graduate Group, University of California, Berkeley, USA}
+\affil[4]{\small Chan Zuckerberg Biohub -- San Francisco, USA}
+\setlength{\affilsep}{2pt}        % space between affiliation lines
+% Center the affiliation block, but left-align its contents
+
+
+\begin{document}
+
+\maketitle
+
+\input{content.supplementary_note}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

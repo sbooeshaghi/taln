@@ -145,7 +145,8 @@ def call_llm(document: str, prompt: str, api_key: str, model: str, max_tokens: i
         import anthropic
     except ImportError:
         raise ImportError(
-            "anthropic package required. Install with: pip install anthropic"
+            "anthropic package required for `taln extract`. "
+            'Install with: pip install "taln[extract]"'
         )
 
     client = anthropic.Anthropic(api_key=api_key)
@@ -171,7 +172,13 @@ def call_llm(document: str, prompt: str, api_key: str, model: str, max_tokens: i
 
 def parse_llm_response(response: str) -> list[dict]:
     """Parse JSON from LLM response, handling markdown code blocks and malformed JSON."""
-    from json_repair import repair_json
+    try:
+        from json_repair import repair_json
+    except ImportError:
+        raise ImportError(
+            "json-repair package required for `taln extract`. "
+            'Install with: pip install "taln[extract]"'
+        )
 
     # Strip markdown code blocks if present
     text = response.strip()

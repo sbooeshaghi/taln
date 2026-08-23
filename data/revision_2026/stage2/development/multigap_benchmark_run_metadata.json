@@ -1,0 +1,102 @@
+{
+  "candidate_cap": 100000,
+  "command": [
+    "analysis/scripts/run_multigap_benchmark.py",
+    "--split",
+    "development",
+    "--overwrite",
+    "--progress-every",
+    "5000"
+  ],
+  "complete": true,
+  "elapsed_seconds": 176.771,
+  "ended_at": "2026-08-12T20:58:23.952185+00:00",
+  "input_files": {
+    "data/revision_2026/bioboat_records.jsonl": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a",
+    "data/revision_2026/boat_records.jsonl": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c",
+    "data/revision_2026/llmarkers_inventory.jsonl": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+  },
+  "limit": null,
+  "method_errors_this_run": 0,
+  "methods": [
+    "taln",
+    "lcs",
+    "difflib"
+  ],
+  "records_path": "data/revision_2026/stage2/development/multigap_benchmark_records.jsonl",
+  "records_sha256": "2a7d553b1e0ef29e82cf5b4f731313c27b56363750731f0ac1151907c00b527f",
+  "run_fingerprint": "3aa57c2b02f195f4834d81b46ab6f95cba95421b3a19c1359c1aa3b97e733b13",
+  "schema_version": "multigap-benchmark-run-metadata-v1",
+  "software": {
+    "huggingface_hub": "1.20.0",
+    "numpy": "2.4.1",
+    "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "taln": "0.1.0",
+    "tiktoken": "0.12.0",
+    "tokenizers": "0.22.2",
+    "transformers": "5.12.1"
+  },
+  "split": "development",
+  "stage2_freeze": {
+    "path": "analysis/config/revision_2026/stage2_variant_freeze.json",
+    "sha256": "b2f324ace957f7bcb07b8fb475b1cbe7dfeb62c3ff10a7f3f280e38b4ad39df4"
+  },
+  "stage2_spec": {
+    "path": "analysis/config/revision_2026/stage2_spec.json",
+    "sha256": "61cda794dfa32e722ed767eb247e81f9576eb6378d7758d65bde7fa66366f7d8"
+  },
+  "started_at": "2026-08-12T20:55:27.181185+00:00",
+  "tasks_evaluated_this_run": 49910,
+  "tasks_expected_for_split": 49910,
+  "tasks_in_records_file": 49910,
+  "tasks_skipped_by_resume": 0,
+  "tokenizer_probes": {
+    "cl100k_base": {
+      "full_lexical_support": true,
+      "target_variants": [
+        {
+          "name": "standalone",
+          "text": "IL-2 TP53",
+          "token_count": 5
+        },
+        {
+          "name": "prefixed_space",
+          "text": " IL-2 TP53",
+          "token_count": 5
+        }
+      ]
+    },
+    "pubmedbert": {
+      "full_lexical_support": true,
+      "model_id": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+      "revision": "e1354b7a3a09615f6aba48dfad4b7a613eef7062",
+      "target_variants": [
+        {
+          "name": "standalone",
+          "text": "IL-2 TP53",
+          "token_count": 4
+        }
+      ]
+    },
+    "punctuation": {
+      "full_lexical_support": true,
+      "target_variants": [
+        {
+          "name": "standalone",
+          "text": "IL-2 TP53",
+          "token_count": 4
+        }
+      ]
+    }
+  },
+  "tokenizers": [
+    "punctuation",
+    "cl100k_base",
+    "pubmedbert"
+  ],
+  "variant_file": {
+    "path": "data/revision_2026/stage2/multigap_variants.jsonl",
+    "sha256": "985e539fc03c6c9247d980c05aa97fb96a7f6962da3c9f77205e1c392a326782"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "candidate_cap": 100000,
+  "code_hashes": {
+    "analysis/config/revision_2026/input_manifest.json": "3fa0af0a5fe318cc9024322131a05b32c8040eda7a946051709daa854c67df07",
+    "analysis/config/revision_2026/split_manifest.json": "d31e308379ac33fbf5d9a1ed377124f632e17d5ffd9280ccd9566c4ec1a84535",
+    "analysis/config/revision_2026/stage1_requirements.txt": "1a10ecf28af06adf573905646a112feee3fd17655c08f40274ad8cdf25584063",
+    "analysis/config/revision_2026/stage2_spec.json": "61cda794dfa32e722ed767eb247e81f9576eb6378d7758d65bde7fa66366f7d8",
+    "analysis/config/revision_2026/stage2_variant_freeze.json": "b2f324ace957f7bcb07b8fb475b1cbe7dfeb62c3ff10a7f3f280e38b4ad39df4",
+    "analysis/scripts/common_evaluator.py": "8bc657030db66353b05aee6a7f326158f9eec9da83009438a8f4006d93f7495f",
+    "analysis/scripts/prepare_multigap_variants.py": "d0f59e7c36102278dd045aea881d97f671b01d4c1dd246d6851b87babd63d747",
+    "analysis/scripts/run_corrected_baseline_matrix.py": "4553db5c46d736d51fae818c78c38a6f4926fcb8fe97a921a089f2a91da96c84",
+    "analysis/scripts/run_multigap_benchmark.py": "61d70eea31d67cf99480858e10c142d39a1eef1ab22dbe3d40cac16ccf35eb6b"
+  },
+  "input_hashes": {
+    "data/revision_2026/bioboat_records.jsonl": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a",
+    "data/revision_2026/boat_records.jsonl": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c",
+    "data/revision_2026/llmarkers_inventory.jsonl": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+  },
+  "limit": null,
+  "methods": [
+    "taln",
+    "lcs",
+    "difflib"
+  ],
+  "record_encoding": {
+    "exact": "One result array.",
+    "result_fields": [
+      "full_lexical_support",
+      "complete_token_alignment",
+      "partial_token_overlap",
+      "localization",
+      "candidate_count",
+      "candidate_count_truncated",
+      "unique_source_interval_count",
+      "runtime_ms",
+      "error",
+      "selected_interval",
+      "selected_localization",
+      "candidate_counts_by_variant"
+    ],
+    "sequence": "Nested arrays in tokenizers-major, methods-minor order.",
+    "source_recovery": "Join base_record_id to frozen BOAT or BIO-BOAT records.",
+    "variant_recovery": "Join variant_id to the frozen Stage 2 variant manifest."
+  },
+  "run_fingerprint": "d47bc6b823446ea99634b5fd34e6fbd6d8a064d64dcf574284fe8525c2f3374f",
+  "schema_version": "multigap-benchmark-run-config-v1",
+  "software": {
+    "huggingface_hub": "1.20.0",
+    "numpy": "2.4.1",
+    "python": "3.13.1",
+    "tiktoken": "0.12.0",
+    "tokenizers": "0.22.2",
+    "transformers": "5.12.1"
+  },
+  "split": "heldout_test",
+  "tokenizers": [
+    "punctuation",
+    "cl100k_base",
+    "pubmedbert"
+  ],
+  "variant_file_sha256": "985e539fc03c6c9247d980c05aa97fb96a7f6962da3c9f77205e1c392a326782"
+}

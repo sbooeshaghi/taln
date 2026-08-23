@@ -11,7 +11,31 @@ venv/
 ENV/
 env/
 
+docs/submissions/archive/
+docs/submissions/icml2026/
+docs/submissions/poster/
+docs/submissions/talk/
+docs/submissions/*/*.aux
+docs/submissions/*/*.bbl
+docs/submissions/*/*.blg
+docs/submissions/*/*.fdb_latexmk
+docs/submissions/*/*.fls
+docs/submissions/*/*.log
+docs/submissions/*/*.out
+docs/submissions/*/*.pdf
+docs/submissions/*/*.synctex.gz
+docs/shared/figures/accuracy_tradeoff.png
+docs/shared/figures/uc_berkeley_seal.png
+docs/revision_2026/figures/*.aux
+docs/revision_2026/figures/*.fdb_latexmk
+docs/revision_2026/figures/*.fls
+docs/revision_2026/figures/*.log
+analysis/scripts/talk/
+tests/archive/
+tests/papers/
+
 # Build artifacts
+.lake/
 *.egg-info/
 dist/
 build/
@@ -42,3 +66,17 @@ htmlcov/
 
 # Environment variables (API keys)
 .env
+
+# Frozen revision summaries: every number in the manuscript traces to these.
+# Per-record outputs (hundreds of MB) stay ignored; summaries, tables, run
+# configs, run metadata, and sample manifests are tracked.
+!data/revision_2026/
+!data/revision_2026/**/
+!data/revision_2026/**/*.tsv
+!data/revision_2026/**/*summary*.json
+!data/revision_2026/**/*metadata*.json
+!data/revision_2026/**/*config*.json
+!data/revision_2026/**/*manifest*.json
+!data/revision_2026/**/*ledger*.json
+data/revision_2026/stage3/
+data/revision_2026/**/*records*

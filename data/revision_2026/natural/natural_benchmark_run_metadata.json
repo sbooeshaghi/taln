@@ -1,0 +1,55 @@
+{
+  "command": [
+    "analysis/scripts/run_natural_benchmark.py"
+  ],
+  "ended_at": "2026-08-17T01:00:24.179807+00:00",
+  "llmarkers_root": "/Users/sinabooeshaghi/projects/markergeneextraction/llmarkers/data",
+  "methods": [
+    "taln",
+    "lcs",
+    "difflib",
+    "semi_global_exact"
+  ],
+  "population": {
+    "labels_empty_after_strip": 0,
+    "labels_whitespace_padded": 1210,
+    "records_per_study": {
+      "adipose_Emont2022": 31,
+      "adipose_Hildreth2021": 74,
+      "bone_He2021": 498,
+      "eye_Gautam2021": 31,
+      "lung_Adams2020": 36,
+      "ovary_Wagner2020": 59,
+      "testis_Shamis2020": 148
+    },
+    "records_text": 877,
+    "records_total": 2528,
+    "tasks": 1754,
+    "unique_label_passage_pairs": 512
+  },
+  "records_path": "data/revision_2026/natural/natural_benchmark_records.jsonl",
+  "schema_version": "natural-benchmark-run-metadata-v1",
+  "software": {
+    "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "taln": "0.1.0"
+  },
+  "source_files": {
+    "adipose_Emont2022/evidence_human/extracted.json": "1e28ae75faa481c8a4278b0e0650b4581dc81ef47a26e1d317cc2fb3e3b1376d",
+    "adipose_Hildreth2021/evidence_human/extracted.json": "61d35de90f71ee7715809ce58a73e520cb60644c612c69ac871095920f4fc1d5",
+    "bone_He2021/evidence_human/extracted.json": "d9eb22d29a24182d622588cbc631c2746625ab275dad0feaf28b78ef2fcf61d8",
+    "eye_Gautam2021/evidence_human/extracted.json": "8813bf6cff6da0fecf066d6061a5508b03763b592de3b1b1c765c63156cf0831",
+    "lung_Adams2020/evidence_human/extracted.json": "548166bbad566410708b8dc8973c9ce5b8e3ad00953f51314a8d93dca5584b0b",
+    "ovary_Wagner2020/evidence_human/extracted.json": "de144cb62b42826204bce4ffe55367673fdd77cc28af11dc0336b6c4422d6388",
+    "testis_Shamis2020/evidence_human/extracted.json": "6f9ffda1c12b133c77b55a3ab409f898ca7262d2e1a5ba02d8a294cb4be0f72f"
+  },
+  "started_at": "2026-08-17T01:00:18.920090+00:00",
+  "summary_path": "data/revision_2026/natural/natural_benchmark_summary.json",
+  "tokenizers": [
+    "whitespace",
+    "punctuation",
+    "cl100k_base",
+    "scibert",
+    "pubmedbert"
+  ]
+}

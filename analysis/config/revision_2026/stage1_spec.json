@@ -1,0 +1,128 @@
+{
+  "schema_version": "revision-2026-stage1-spec-v1",
+  "frozen_on": "2026-08-12",
+  "purpose": "Correct the earlier asymmetric baseline comparison and isolate alignment-method effects from tokenizer effects.",
+  "inputs": {
+    "boat": "data/revision_2026/boat_records.jsonl",
+    "bioboat": "data/revision_2026/bioboat_records.jsonl",
+    "llmarkers": "data/revision_2026/llmarkers_inventory.jsonl",
+    "input_manifest": "analysis/config/revision_2026/input_manifest.json",
+    "split_manifest": "analysis/config/revision_2026/split_manifest.json"
+  },
+  "split_policy": {
+    "development": "May be used only for pipeline validation and interpretation-rule debugging.",
+    "heldout_test": "Run once after the Stage 1 implementation and reporting rules pass development checks; do not tune on these outcomes.",
+    "cluster_unit": "document_id"
+  },
+  "task_conditions": {
+    "contiguous": "Use the frozen canonical target and all frozen original-text gold intervals.",
+    "one_gap": {
+      "name": "central_whitespace_token_deletion",
+      "eligibility": "At least three maximal non-whitespace target chunks.",
+      "rule": "Delete chunk floor(n / 2), join retained chunks with one ASCII space, and retain the original target's outer gold interval.",
+      "still_contiguous_policy": "If the deleted target remains an exact normalized source substring elsewhere, label it one_gap_still_contiguous_control and exclude it from the primary one_gap condition.",
+      "interpretation": "Controlled one-gap recovery, not a model of the full distribution of LLM errors."
+    },
+    "llmarkers_positive_label": "For records whose frozen inventory has all_verified=true, evaluate group_label and feature_label separately against source_rationale. This inventory is positive-only and is not independent semantic gold."
+  },
+  "normalization": "taln.norm_text_with_mapping",
+  "tokenizers": {
+    "whitespace": {
+      "definition": "Case-sensitive maximal non-whitespace chunks (regex \\S+)."
+    },
+    "boundary_stripped_whitespace": {
+      "definition": "Whitespace chunks with non-word characters removed only from each chunk's left and right boundaries; internal punctuation is retained."
+    },
+    "punctuation": {
+      "definition": "Case-sensitive words/numbers/underscore and individual punctuation tokens (regex \\w+|[^\\w\\s])."
+    },
+    "cl100k_base": {
+      "implementation": "tiktoken cl100k_base",
+      "package_version": "0.12.0",
+      "contextual_target_retry": "standalone target and one-leading-space target"
+    },
+    "scibert": {
+      "label": "SciBERT",
+      "model_id": "allenai/scibert_scivocab_uncased",
+      "revision": "24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1",
+      "use_fast": true,
+      "add_special_tokens": false,
+      "verbatim_surface_policy": "Pair the uncased token ID with its normalized original-case surface so case-different and unknown surfaces do not count as equal verbatim tokens.",
+      "contextual_target_retry": "none; frozen probes show leading whitespace does not change token IDs"
+    },
+    "pubmedbert": {
+      "label": "PubMedBERT (repository now named BiomedBERT)",
+      "model_id": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+      "revision": "e1354b7a3a09615f6aba48dfad4b7a613eef7062",
+      "use_fast": true,
+      "add_special_tokens": false,
+      "verbatim_surface_policy": "Pair the uncased token ID with its normalized original-case surface so case-different and unknown surfaces do not count as equal verbatim tokens.",
+      "contextual_target_retry": "none; frozen probes show leading whitespace does not change token IDs"
+    }
+  },
+  "methods": {
+    "normalized_exact_substring": {
+      "runner_name": "exact",
+      "definition": "Character-level exact substring search after declared normalization; evaluated once per task and not attributed to a tokenizer."
+    },
+    "taln": {
+      "definition": "Enumerate injective order-preserving equal-token correspondences. A task succeeds if any candidate covers every target token.",
+      "candidate_cap": 100000,
+      "compact_run": "Count paths with capped dynamic programming and materialize one diagnostic path; test all gold outer intervals without requiring full materialization."
+    },
+    "lcs": {
+      "definition": "One deterministic longest common token subsequence; full target coverage is required."
+    },
+    "difflib": {
+      "definition": "Python difflib.SequenceMatcher matching blocks with autojunk=false; full target coverage is required."
+    },
+    "semi_global_exact": {
+      "definition": "Token-exact target-global/source-semi-global alignment. Match=+1, skipped source token=-1, source prefixes/suffixes free, mismatches and target gaps forbidden.",
+      "success": "A finite full-target path succeeds even when its score is zero or negative.",
+      "tie_break": "Fewest skipped source tokens, then earliest first source token, then lexicographically smallest source-index path."
+    }
+  },
+  "metrics": {
+    "primary": "full_lexical_support: complete equality of the case-preserving target token sequence under the declared tokenizer; whitespace discarded by a tokenizer is not reintroduced as a second method-dependent criterion",
+    "secondary": [
+      "localization",
+      "partial_token_overlap",
+      "candidate_count",
+      "candidate_count_truncated"
+    ],
+    "localization_note": "Any-candidate localization is an enumerative capability for taln; selected-path localization for one-path baselines is descriptive and is not interpreted as an algorithmic accuracy comparison."
+  },
+  "statistics": {
+    "confidence_interval": "95% document-clustered percentile bootstrap",
+    "bootstrap_resamples": 10000,
+    "seed": 20260812,
+    "paired_primary_test": "Document-level sign-flip randomization test",
+    "record_level_mcnemar": "Descriptive only"
+  },
+  "primary_contrasts": {
+    "tokenizer_with_taln": [
+      ["boundary_stripped_whitespace", "whitespace"],
+      ["punctuation", "whitespace"],
+      ["cl100k_base", "punctuation"],
+      ["scibert", "punctuation"],
+      ["pubmedbert", "punctuation"]
+    ],
+    "method_within_tokenizer": [
+      ["lcs", "taln"],
+      ["difflib", "taln"],
+      ["semi_global_exact", "taln"]
+    ],
+    "biomedical_tokenizer_contrasts_are_primary_for": [
+      "bioboat",
+      "llmarkers"
+    ]
+  },
+  "software_environment_at_freeze": {
+    "requirements": "analysis/config/revision_2026/stage1_requirements.txt",
+    "python": "3.13.1",
+    "transformers": "5.12.1",
+    "tokenizers": "0.22.2",
+    "huggingface_hub": "1.20.0",
+    "tiktoken": "0.12.0"
+  }
+}

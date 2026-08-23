@@ -1,9 +1,12 @@
+import argparse
 import difflib
 import json
 import logging
 import re
 import unicodedata
 from collections import defaultdict
+from dataclasses import dataclass
+from itertools import islice
 
 import numpy as np
 import tiktoken
@@ -12,6 +15,45 @@ from unidecode import unidecode
 from taln.utils import load_text
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass(frozen=True)
+class AlignmentResult:
+    """Materialized alignments and the completion state of their search."""
+
+    alignments: list
+    truncated: bool
+    max_alignments: int | None
+
+    @property
+    def status(self):
+        if self.truncated:
+            return "truncated"
+        if not self.alignments:
+            return "no_alignment"
+        return "complete"
+
+    @property
+    def exhaustive(self):
+        return not self.truncated
+
+    def to_dict(self):
+        """Return the JSON-ready status envelope used by the CLI."""
+        return {
+            "alignments": self.alignments,
+            "status": self.status,
+            "truncated": self.truncated,
+            "exhaustive": self.exhaustive,
+            "max_alignments": self.max_alignments,
+            "returned_alignment_count": len(self.alignments),
+        }
+
+
+def _parse_nonnegative_int(value):
+    parsed = int(value)
+    if parsed < 0:
+        raise argparse.ArgumentTypeError("must be non-negative")
+    return parsed
 
 
 def setup_taln_aln_args(parser):
@@ -28,10 +70,23 @@ def setup_taln_aln_args(parser):
         help="Source text to align as str or .txt",
         required=True,
     )
-    subparser.add_argument(
+    limit_group = subparser.add_mutually_exclusive_group()
+    limit_group.add_argument(
         "--single",
         action="store_true",
         help="Return only first alignment",
+    )
+    limit_group.add_argument(
+        "--max-alignments",
+        type=_parse_nonnegative_int,
+        help="Return at most this many alignments with explicit status metadata",
+    )
+    subparser.add_argument(
+        "--with-status",
+        "--status",
+        dest="with_status",
+        action="store_true",
+        help="Return alignments in a status-bearing JSON object",
     )
     subparser.add_argument(
         "-tt",
@@ -62,94 +117,191 @@ def validate_taln_aln_args(parser, args):
     ttype = args.tokenization_type
     output = args.output
     sng = args.single
+    max_alignments = getattr(args, "max_alignments", None)
+    with_status = getattr(args, "with_status", False)
 
-    alns = align_ng(src, tgt, ttype)
-    logging.info(f"{len(alns)} alignments found")
+    if sng and with_status:
+        parser.error("--with-status cannot be used with --single")
+
     if sng:
-        alns = alns[0]
+        aln = next(iter_align_ng(src, tgt, ttype), None)
+        payload = aln if aln is not None else []
+        logging.info("%d alignment returned (--single)", int(aln is not None))
+    elif max_alignments is not None or with_status:
+        result = align_ng_result(
+            src,
+            tgt,
+            ttype,
+            max_alignments=max_alignments,
+        )
+        payload = result.to_dict()
+        logging.info(
+            "%d alignments returned (%s)",
+            len(result.alignments),
+            result.status,
+        )
+    else:
+        payload = align_ng(src, tgt, ttype)
+        logging.info("%d alignments found", len(payload))
 
     if output:
         with open(output, "w") as f:
-            json.dump(alns, f, indent=4)
+            json.dump(payload, f, indent=4)
     else:
-        print(json.dumps(alns, indent=4))
+        print(json.dumps(payload, indent=4))
     pass
 
 
+def _coerce_text(text):
+    if isinstance(text, str):
+        return text
+    try:
+        return str(text)
+    except Exception:
+        return ""
+
+
+_NORMALIZATION_CHAR_MAP = {
+    "–": "-",
+    "—": "--",
+    "‘": "'",
+    "’": "'",
+    "“": '"',
+    "”": '"',
+    "…": "...",
+    "•": "*",
+    "·": ".",
+    "×": "x",
+    "÷": "/",
+    "≤": "<=",
+    "≥": ">=",
+    "≠": "!=",
+    "≈": "~",
+    "∞": "inf",
+    "∂": "d",
+    "∫": "integral",
+    "∑": "sum",
+    "∏": "product",
+    "√": "sqrt",
+    "∝": "prop to",
+    "∠": "angle",
+    "△": "triangle",
+    "□": "square",
+    "∈": "in",
+    "∉": "not in",
+    "⊂": "subset",
+    "⊃": "superset",
+    "∪": "union",
+    "∩": "intersect",
+    "⊆": "subseteq",
+    "⊇": "superseteq",
+}
+_NORMALIZATION_TRANSLATION = str.maketrans(_NORMALIZATION_CHAR_MAP)
+
+
+def _nfc_units_with_original_spans(text):
+    """Yield NFC characters with intervals into the unnormalized input.
+
+    A starter and its following Unicode marks are normalized together so a
+    decomposed sequence such as ``e`` plus an acute accent retains the full
+    original interval after composition.
+    """
+    start = 0
+    while start < len(text):
+        end = start + 1
+        while end < len(text):
+            next_char = text[end]
+            combined = unicodedata.normalize("NFC", text[start : end + 1])
+            separate = (
+                unicodedata.normalize("NFC", text[start:end])
+                + unicodedata.normalize("NFC", next_char)
+            )
+            if not (
+                unicodedata.category(next_char).startswith("M")
+                or combined != separate
+            ):
+                break
+            end += 1
+        for char in unicodedata.normalize("NFC", text[start:end]):
+            yield char, (start, end)
+        start = end
+
+
+def _normalize_text_and_mapping(text):
+    text = _coerce_text(text)
+
+    expanded = []
+    spans = []
+    original_whitespace = []
+    for char, original_span in _nfc_units_with_original_spans(text):
+        replacement = unidecode(char).translate(_NORMALIZATION_TRANSLATION)
+        replacement = replacement.replace("\n", " ")
+        source_fragment = text[original_span[0] : original_span[1]]
+        source_is_whitespace = bool(source_fragment) and source_fragment.isspace()
+        for out_char in replacement:
+            expanded.append(out_char)
+            spans.append(original_span)
+            original_whitespace.append(source_is_whitespace and out_char.isspace())
+
+    normalized = []
+    mapping = []
+    idx = 0
+    while idx < len(expanded):
+        if expanded[idx].isspace():
+            start = spans[idx][0]
+            end = spans[idx][1]
+            direct_whitespace_spans = []
+            if original_whitespace[idx]:
+                direct_whitespace_spans.append(spans[idx])
+            idx += 1
+            while idx < len(expanded) and expanded[idx].isspace():
+                end = spans[idx][1]
+                if original_whitespace[idx]:
+                    direct_whitespace_spans.append(spans[idx])
+                idx += 1
+            if direct_whitespace_spans:
+                start = direct_whitespace_spans[0][0]
+                end = direct_whitespace_spans[-1][1]
+            normalized.append(" ")
+            mapping.append((start, end))
+        else:
+            normalized.append(expanded[idx])
+            mapping.append(spans[idx])
+            idx += 1
+
+    return "".join(normalized), mapping
+
+
 def norm_text(text):
-    """
-    Normalize text to ensure UTF-8 compatibility for NLP processing.
+    """Return the normalized text used by the alignment tokenizers."""
+    normalized, _ = _normalize_text_and_mapping(text)
+    return normalized
 
-    This function:
-    1. Normalizes Unicode to the NFC form
-    2. Replaces problematic characters with ASCII equivalents
-    3. Handles common special characters that cause issues
 
-    Args:
-        text (str): Input text to normalize
+def norm_text_with_mapping(text):
+    """Normalize text and map normalized character offsets to original offsets."""
+    return _normalize_text_and_mapping(text)
 
-    Returns:
-        str: Normalized text safe for UTF-8 processing
-    """
-    if not isinstance(text, str):
-        try:
-            text = str(text)
-        except Exception:
-            return ""
 
-    # Step 1: Unicode normalization to NFC form (composed form)
-    # This combines characters and diacritics when possible
-    text = unicodedata.normalize("NFC", text)
-    text = unidecode(text)
+def _map_token_offsets(tokens, mapping):
+    mapped = []
+    for token in tokens:
+        start = token["start_idx"]
+        end = token["end_idx"]
+        if start < end and start < len(mapping):
+            mapped_start = mapping[start][0]
+            mapped_end = mapping[min(end - 1, len(mapping) - 1)][1]
+        else:
+            mapped_start = start
+            mapped_end = end
 
-    # Step 2: Map specific problematic characters to ASCII equivalents
-
-    char_map = {
-        "–": "-",  # en dash
-        "—": "--",  # em dash
-        "‘": "'",  # left single quote
-        "’": "'",  # right single quote
-        "“": '"',  # left double quote
-        "”": '"',  # right double quote
-        "…": "...",  # ellipsis
-        "•": "*",  # bullet
-        "·": ".",  # middle dot
-        "×": "x",  # multiplication sign
-        "÷": "/",  # division sign
-        "≤": "<=",  # less than or equal
-        "≥": ">=",  # greater than or equal
-        "≠": "!=",  # not equal
-        "≈": "~",  # approximately equal
-        "∞": "inf",  # infinity
-        "∂": "d",  # partial differential
-        "∫": "integral",  # integral
-        "∑": "sum",  # sum
-        "∏": "product",  # product
-        "√": "sqrt",  # square root
-        "∝": "prop to",  # proportional to
-        "∠": "angle",  # angle
-        "△": "triangle",  # triangle
-        "□": "square",  # square
-        "∈": "in",  # element of
-        "∉": "not in",  # not an element of
-        "⊂": "subset",  # subset
-        "⊃": "superset",  # superset
-        "∪": "union",  # union
-        "∩": "intersect",  # intersection
-        "⊆": "subseteq",  # subset or equal
-        "⊇": "superseteq",  # superset or equal
-    }
-
-    for char, replacement in char_map.items():
-        text = text.replace(char, replacement)
-    # Step 3: Remove any remaining non-ASCII characters (optional)
-    # Uncomment if you want to remove ALL non-ASCII characters
-    # text = re.sub(r'[^\x00-\x7F]+', '', text)
-
-    text = text.replace("\n", " ")
-    text = re.sub(r"\s+", " ", text)  # .strip()
-
-    return text
+        tk = dict(token)
+        tk["norm_start_idx"] = start
+        tk["norm_end_idx"] = end
+        tk["start_idx"] = mapped_start
+        tk["end_idx"] = mapped_end
+        mapped.append(tk)
+    return mapped
 
 
 def tokenize_with_offsets(text, encoding="cl100k_base"):
@@ -200,8 +352,9 @@ def tokenize(text, ttype="token"):
         "token": tokenize_with_offsets,
         "whitespace": tokenize_whitespace_with_offsets,
     }
-    nt = norm_text(text)
+    nt, mapping = norm_text_with_mapping(text)
     tks = TOKENIZER[ttype](nt)
+    tks = _map_token_offsets(tks, mapping)
     t2w = defaultdict(list)
     for tk in tks:
         t2w[tk["enc_token"]].append(tk)
@@ -236,13 +389,19 @@ def build_index(text, k=1, ttype="token"):
 
 
 def align_target(target, ngram_to_id, ngram_id_to_pos, k=1, ttype="token"):
+    """Build one source-position candidate list for every target n-gram.
+
+    An empty result means that the target has no n-grams or at least one
+    target n-gram is absent from the source. Repeated target n-grams remain
+    distinct entries so downstream grouping can enforce an injective ordered
+    map for every target position.
+    """
     tokens, t2w = tokenize(target, ttype)
 
     enc_tokens = [i["enc_token"] for i in tokens]
 
     aln = []
 
-    prev_id = None
     for i in range(len(enc_tokens) - k + 1):
         target_ngram = tuple(enc_tokens[i : i + k])  # build the ngram from the target
 
@@ -250,52 +409,62 @@ def align_target(target, ngram_to_id, ngram_id_to_pos, k=1, ttype="token"):
             tuple(target_ngram), None
         )  # align the target ngram to the ngrams built from source
 
-        if ngram_id is not None:
-            if prev_id is not None and prev_id == ngram_id:
-                continue  # Skip duplicate adjacent n-grams
-            aln.append(
-                {
-                    target_ngram: [
-                        {"ngram_id": ngram_id, "pos": j}
-                        for j in ngram_id_to_pos[ngram_id]
-                    ]
-                }
-            )
-            prev_id = ngram_id
+        if ngram_id is None:
+            return []
+
+        aln.append(
+            {
+                target_ngram: [
+                    {"ngram_id": ngram_id, "pos": j}
+                    for j in ngram_id_to_pos[ngram_id]
+                ]
+            }
+        )
 
     return aln
 
 
-def group_ngrams(aln):
+def iter_group_ngrams(aln):
+    """Yield each increasing n-gram position path without materializing all paths."""
     position_lists = [list(entry.values())[0] for entry in aln]
 
     def dfs(idx, path):
         if idx == len(position_lists):
-            yield path
+            yield list(path)
             return
         last_pos = path[-1]["pos"] if path else -1
         for candidate in position_lists[idx]:
             if candidate["pos"] > last_pos:
-                yield from dfs(idx + 1, path + [candidate])
+                path.append(candidate)
+                yield from dfs(idx + 1, path)
+                path.pop()
 
-    grp = list(dfs(0, []))
-    return grp
+    yield from dfs(0, [])
+
+
+def group_ngrams(aln):
+    """Return all increasing n-gram position paths.
+
+    This list-returning wrapper is retained for callers that use the original
+    helper directly. New code should use :func:`iter_group_ngrams`.
+    """
+    return list(iter_group_ngrams(aln))
+
+
+def _tokens_for_ngram_group(aln_ngrams, ngrams):
+    pos = aln_ngrams[0]["pos"]
+    tokens = list(ngrams[pos]["tks"])
+
+    for ngram in aln_ngrams[1:]:
+        pos = ngram["pos"]
+        tokens.append(ngrams[pos]["tks"][-1])
+
+    return tokens
 
 
 def group_tokens(grp, ngrams):
     # group tokens for each combination of ngrams
-    tk_aln = []
-    for aln_ngrams in grp:
-        pos = aln_ngrams[0]["pos"]
-
-        tks = []
-        tks += ngrams[pos]["tks"]
-
-        for ng in aln_ngrams[1:]:
-            pos = ng["pos"]
-            tks += [ngrams[pos]["tks"][-1]]
-        tk_aln.append(tks)
-    return tk_aln
+    return [_tokens_for_ngram_group(aln_ngrams, ngrams) for aln_ngrams in grp]
 
 
 def build_graph(ngrams, id_to_ngram):
@@ -317,15 +486,15 @@ def build_graph(ngrams, id_to_ngram):
     return graph
 
 
-def align_ng(source, target, ttype="token"):
+def iter_align_ng(source, target, ttype="token"):
+    """Yield complete injective order-preserving maps for all target tokens."""
     k = 1
     ngram_to_id, id_to_ngram, ngram_id_to_pos, ngrams = build_index(source, k, ttype)
 
     aln = align_target(target, ngram_to_id, ngram_id_to_pos, k, ttype)
-    token_alns = []
-    if len(aln) > 0:
-        grp = group_ngrams(aln)
-        token_alns = group_tokens(grp, ngrams)
+    if aln:
+        for ngram_group in iter_group_ngrams(aln):
+            yield _tokens_for_ngram_group(ngram_group, ngrams)
 
     # Tiktoken assigns different token IDs to the same characters at a word
     # boundary: standalone "FOX" != mid-text " FOX".  Prepending a space to
@@ -334,11 +503,66 @@ def align_ng(source, target, ttype="token"):
     # alignment with the best coverage.
     if ttype == "token" and target and not target.startswith(" "):
         aln_sp = align_target(" " + target, ngram_to_id, ngram_id_to_pos, k, ttype)
-        if len(aln_sp) > 0:
-            grp_sp = group_ngrams(aln_sp)
-            token_alns.extend(group_tokens(grp_sp, ngrams))
+        if aln_sp:
+            for ngram_group in iter_group_ngrams(aln_sp):
+                yield _tokens_for_ngram_group(ngram_group, ngrams)
 
-    return token_alns if token_alns else []
+
+def _validate_max_alignments(max_alignments):
+    if max_alignments is None:
+        return
+    if isinstance(max_alignments, bool) or not isinstance(max_alignments, int):
+        raise TypeError("max_alignments must be an integer or None")
+    if max_alignments < 0:
+        raise ValueError("max_alignments must be non-negative")
+
+
+def align_ng_result(source, target, ttype="token", max_alignments=None):
+    """Materialize alignments with explicit completion metadata.
+
+    At most one alignment beyond ``max_alignments`` is consumed to determine
+    whether additional results exist. A zero cap therefore distinguishes an
+    empty search from a non-empty search whose results were all withheld.
+    """
+    _validate_max_alignments(max_alignments)
+    alignment_iter = iter_align_ng(source, target, ttype)
+
+    if max_alignments is None:
+        alignments = list(alignment_iter)
+        truncated = False
+    else:
+        alignments = list(islice(alignment_iter, max_alignments + 1))
+        truncated = len(alignments) > max_alignments
+        if truncated:
+            alignments.pop()
+
+    return AlignmentResult(
+        alignments=alignments,
+        truncated=truncated,
+        max_alignments=max_alignments,
+    )
+
+
+def align_ng(
+    source,
+    target,
+    ttype="token",
+    max_alignments=None,
+    *,
+    return_status=False,
+):
+    """Return ordered token alignments, optionally bounded and status-bearing.
+
+    An uncapped call retains the original exhaustive list return type unless
+    ``return_status=True`` is requested. Any call with ``max_alignments``
+    returns an :class:`AlignmentResult` so a bounded result cannot be mistaken
+    for an exhaustive list.
+    """
+    result = align_ng_result(source, target, ttype, max_alignments)
+
+    if return_status or max_alignments is not None:
+        return result
+    return result.alignments
 
 
 def align_ng_casefold(source, target, ttype="token"):

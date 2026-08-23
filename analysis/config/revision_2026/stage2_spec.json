@@ -1,0 +1,89 @@
+{
+  "schema_version": "revision-2026-stage2-spec-v2",
+  "frozen_on": "2026-08-12",
+  "revision_reason": "Development-only results made explicit that exact ordered-subsequence recovery is invariant to these deletions by construction. Version 2 freezes that interpretation, clarifies descriptive contrasts, and removes ambiguous metric labels before held-out evaluation.",
+  "purpose": "Test exact-method invariants, heuristic robustness, and source-location ambiguity as retained lexical evidence becomes sparser under controlled interior target deletions.",
+  "interpretation": "Deleting target chunks while leaving the source unchanged guarantees that every retained canonical chunk remains in source order. taln and full-coverage LCS recovery are therefore construction invariants and method-agreement checks, not empirical superiority or degradation outcomes. difflib behavior and punctuation-tokenized taln candidate ambiguity are descriptive empirical outcomes. This is not a generative model of LLM errors and does not evaluate semantic correctness.",
+  "inputs": {
+    "boat": "data/revision_2026/boat_records.jsonl",
+    "bioboat": "data/revision_2026/bioboat_records.jsonl",
+    "input_manifest": "analysis/config/revision_2026/input_manifest.json",
+    "split_manifest": "analysis/config/revision_2026/split_manifest.json"
+  },
+  "variant_design": {
+    "canonical_chunks": "Maximal non-whitespace target chunks matched by regex \\S+ before applying any evaluated tokenizer.",
+    "gap_counts": [1, 2, 3],
+    "gap_widths": [1, 2, 3],
+    "factorial": "Generate one deterministic variant for every gap-count by gap-width combination.",
+    "common_cohort_eligibility": "Require at least 13 canonical chunks, equal to max_gap_count * max_gap_width + max_gap_count + 1. Every included record therefore contributes every condition.",
+    "placement_rule": "Distribute retained chunks as evenly as possible across the gap_count + 1 retained segments, assigning any remainder from left to right, then alternate retained segments with fixed-width deleted blocks.",
+    "placement_rule_id": "balanced_retained_segments_v1",
+    "stage1_compatibility": "For one gap of width one, the rule deletes chunk floor(n / 2), matching the Stage 1 central deletion.",
+    "target_construction": "Delete the selected chunks and join retained chunks with one ASCII space.",
+    "contiguous_control": "Preserve the undeleted target as gap_count=0 and gap_width=0 for a self-contained baseline.",
+    "still_contiguous_policy": "If a shortened target remains an exact normalized substring anywhere in the source, label it still_contiguous_control and exclude it from primary non-contiguous summaries.",
+    "gold_localization": "Use the outer original-text interval of every literal occurrence of the undeleted target in the source. Shortened-target occurrences elsewhere are not gold.",
+    "randomness": "None",
+    "placement_limit": "Each record contributes one balanced placement per condition. Candidate-burden differences are descriptive for these frozen placements and are not interpreted as causal effects of gap topology."
+  },
+  "normalization": "taln.norm_text_with_mapping",
+  "matrix": {
+    "exact_substring": "Evaluate normalized character substring matching once per variant as a construction control.",
+    "tokenizers": ["punctuation", "cl100k_base", "pubmedbert"],
+    "methods": ["taln", "lcs", "difflib"],
+    "candidate_cap": 100000,
+    "pubmedbert_revision": "e1354b7a3a09615f6aba48dfad4b7a613eef7062"
+  },
+  "metrics": {
+    "primary": "full_lexical_support",
+    "reported": [
+      "full_lexical_support",
+      "gold_interval_hit_with_method_specific_scope",
+      "no_matched_token_path_rate",
+      "candidate_count",
+      "unique_source_interval_count",
+      "runtime_ms_diagnostic",
+      "candidate_count_truncated"
+    ],
+    "candidate_burden_population": "Report candidate burden only for punctuation-tokenized taln tasks with full lexical support. Capped counts are lower bounds. cl100k_base evaluates two contextual target variants, so its raw path counts are not compared with single-variant tokenizers.",
+    "no_matched_token_path_definition": "candidate_count equals zero. This is not the complement of full reconstruction because partial matched-token paths can exist when some target tokens are absent.",
+    "localization_note": "Label taln localization as any-candidate gold-interval coverage. Label exact, LCS, and difflib localization as selected-path gold-interval hit. These are different capabilities and are not ranked as interchangeable accuracy measures.",
+    "runtime_note": "Per-task runtime is diagnostic because tokenizer caching and serial method order affect it. Separate repeated benchmarks are required for runtime claims."
+  },
+  "statistics": {
+    "confidence_interval": "95% document-clustered percentile bootstrap",
+    "bootstrap_resamples": 10000,
+    "seed": 20260812,
+    "severity_contrasts": [
+      {
+        "name": "three-vs-one-gap-at-width-one",
+        "comparison": {"gap_count": 3, "gap_width": 1},
+        "reference": {"gap_count": 1, "gap_width": 1},
+        "interpretation": "Descriptive change with more separated deletion events and two additional deleted chunks."
+      },
+      {
+        "name": "width-three-vs-width-one-at-one-gap",
+        "comparison": {"gap_count": 1, "gap_width": 3},
+        "reference": {"gap_count": 1, "gap_width": 1},
+        "interpretation": "Descriptive change with a wider deletion and two additional deleted chunks."
+      },
+      {
+        "name": "three-separated-vs-one-wide-three-chunks",
+        "comparison": {"gap_count": 3, "gap_width": 1},
+        "reference": {"gap_count": 1, "gap_width": 3},
+        "interpretation": "Both variants delete three chunks; placements and deleted token identities differ, so this is a descriptive fragmentation comparison rather than a causal estimate."
+      },
+      {
+        "name": "two-separated-vs-one-wide-two-chunks",
+        "comparison": {"gap_count": 2, "gap_width": 1},
+        "reference": {"gap_count": 1, "gap_width": 2},
+        "interpretation": "Both variants delete two chunks; placements and deleted token identities differ, so this is a descriptive fragmentation comparison rather than a causal estimate."
+      }
+    ],
+    "severity_methods": ["taln", "difflib"],
+    "severity_tokenizer": "punctuation",
+    "paired_unit": "base_record_id",
+    "cluster_unit": "document_id"
+  },
+  "heldout_policy": "Generate and hash the complete variant manifest before evaluation. Validate the development pipeline first, then run the held-out matrix once with the frozen manifest, matrix, candidate cap, reporting rules, canonical input paths, and canonical output path. Record started and completed states in an immutable canonical ledger. Held-out overwrite and parameter overrides are forbidden."
+}

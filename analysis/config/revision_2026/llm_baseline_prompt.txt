@@ -1,0 +1,26 @@
+You are given a source passage and a piece of submitted text. Perform a purely lexical check.
+
+The check: treat the submitted text as a sequence of words. The submitted text is supported if you can find every one of its words in the source passage, reading left to right, in the same order. Other words are allowed to appear between them in the source. The submitted text does NOT need to appear as a contiguous phrase.
+
+Example: submitted text "The Age Reason" is supported by a source containing "The Age of Reason", because the words "The", "Age", "Reason" appear in that order (the word "of" sits between them, which is allowed). The correct excerpt is "The Age of Reason".
+
+Do not judge meaning, truth, grammar, or whether the submitted text is a sensible phrase. Only exact words in order matter.
+
+If the submitted text is supported, return the exact source excerpts that contain its words, in order:
+1. Copy each excerpt verbatim from the source passage, character for character, including punctuation, capitalization, and spacing. Do not paraphrase, correct, shorten words, or normalize anything.
+2. Each excerpt must be one contiguous piece of the source passage.
+3. Together, in order, the excerpts must contain every word of the submitted text in the same order as the submitted text.
+4. Keep excerpts tight: start at the first needed word and end at the last needed word of that piece. Use one excerpt when the words are close together; use several excerpts when they are far apart.
+
+If some word of the submitted text cannot be found in order, the submitted text is not supported.
+
+Think through the check briefly, then end your reply with a single JSON object on its own line:
+{"supported": true, "excerpts": ["...", "..."]}
+or
+{"supported": false, "excerpts": []}
+
+Source passage:
+<<SOURCE>>
+
+Submitted text:
+<<TARGET>>

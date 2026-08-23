@@ -1,0 +1,109 @@
+{
+  "schema_version": "revision-2026-selection-assessment-spec-v1",
+  "status": "frozen",
+  "prepared_on": "2026-08-14",
+  "frozen_on": "2026-08-14",
+  "frozen_by": "author approval in revision working session",
+  "freeze_rule": "This spec must be approved by the author and frozen before any held-out evaluation. Rules, metrics, denominators, and the recommendation criterion may not change after the first held-out run.",
+  "purpose": "Quantify the tradeoffs of selecting one source occurrence from the complete set of enumerated exact ordered alignments, and identify which frozen selection rule performs best on held-out data.",
+  "interpretation": "Enumeration produces every complete ordered candidate; selection chooses one. A selection rule ranks lexically valid occurrences. It does not decide contextual or semantic correctness. When two source occurrences have identical surface text, no lexical rule can distinguish them; that indistinguishable fraction is reported as a ceiling, not a rule failure.",
+  "relation_to_prior_work": "Replaces the exploratory density-ranking analysis (top-1 89.2%), which selected and evaluated rules on the same data and is not manuscript evidence. Implements the ranking evaluation deferred from the Stage 6 (bounded enumeration) plan: rules selected on development documents only, frozen, then evaluated once on held-out data.",
+  "inputs": {
+    "stage1_records": "data/revision_2026/stage1/{development,heldout_test}/corrected_baseline_records.jsonl (task identities only; candidates are re-enumerated)",
+    "stage2_variants": "data/revision_2026/stage2/multigap_variants.jsonl",
+    "boat": "data/revision_2026/boat_records.jsonl",
+    "bioboat": "data/revision_2026/bioboat_records.jsonl",
+    "split_manifest": "analysis/config/revision_2026/split_manifest.json",
+    "note": "Frozen per-record outputs store per-method summaries, not candidate lists. Candidates are re-enumerated deterministically with taln from the frozen inputs. Stage 2 records were produced by the current evaluator revision: uncapped Stage 2 candidate-count mismatches abort the run. Stage 1 records predate the evaluator's repeated-adjacent-token revision (commit 22a5429), so Stage 1 verification requires full-support agreement (disagreement aborts) and records any candidate-count drift as itemized warnings in the run metadata.",
+    "amendments": [
+      {
+        "date": "2026-08-14",
+        "before_first_heldout_run": true,
+        "change": "Split the count-verification policy by stage after observing that frozen Stage 1 records carry candidate counts from the pre-Stage-2 evaluator revision (code-hash mismatch recorded in the frozen Stage 1 run config). Support-outcome agreement remains a hard requirement for both stages."
+      },
+      {
+        "date": "2026-08-14",
+        "before_first_heldout_run": true,
+        "change": "Three clarifications after an external design critique, none altering rules, metrics, or the recorded development selection: (1) pooled estimates are task-weighted with document-clustered intervals; (2) confirmatory localization rates are additionally reported excluding capped tasks, because a hidden candidate beyond the cap can change a top-1 outcome in either direction, so capped metrics are not lower bounds; (3) shortest_interval, fewest_gap_characters, and matched_token_density are expected to be monotone-equivalent whenever matched-character counts are constant across candidates, and the results document must report their agreement rather than present them as independent hypotheses. The indistinguishability flag marks tasks where interval text cannot separate occurrences; position-based tie-breaks may still resolve some of them, so it is an ambiguity flag, not a strict ceiling."
+      }
+    ]
+  },
+  "task_population": {
+    "stage1": "All primary one-gap tasks, development and held-out, BOAT and BIO-BOAT.",
+    "stage2": "All variants in every gap-count by gap-width condition, including contiguous controls, development and held-out.",
+    "denominator": "Tasks with at least one full reconstruction under the evaluated tokenizer. Tasks with no complete alignment are excluded from selection metrics and their count is reported.",
+    "capped_tasks": "Tasks reaching the candidate cap are retained, flagged, and reported separately; their metrics are lower bounds."
+  },
+  "enumeration": {
+    "method": "taln complete order-preserving enumeration",
+    "tokenizer_primary": "punctuation_aware_lexical",
+    "tokenizer_sensitivity": ["cl100k_base"],
+    "candidate_cap": 100000,
+    "candidate_unit": "Metrics are computed over unique original-source intervals, not raw token paths. Raw-path and unique-interval counts are both reported."
+  },
+  "selection_rules": {
+    "frozen_list": [
+      {
+        "rule_id": "input_order",
+        "definition": "First enumerated candidate in deterministic enumeration order."
+      },
+      {
+        "rule_id": "shortest_interval",
+        "definition": "Candidate whose original-source interval has the fewest characters."
+      },
+      {
+        "rule_id": "fewest_gap_characters",
+        "definition": "Candidate with the fewest source characters inside its interval that are not covered by matched tokens."
+      },
+      {
+        "rule_id": "matched_token_density",
+        "definition": "Candidate maximizing matched-token characters divided by interval length."
+      },
+      {
+        "rule_id": "earliest_interval",
+        "definition": "Candidate whose interval starts earliest in the source."
+      }
+    ],
+    "tie_break": "All rules break ties by earliest interval start, then shortest interval, then enumeration order. Deterministic.",
+    "tuning": "None. No rule has parameters. No rule may be added, removed, or modified after freeze."
+  },
+  "gold": {
+    "stage1": "Accepted gold original-source intervals as defined by the Stage 1 evaluation contract (every literal occurrence of the undeleted construction source is valid gold).",
+    "stage2": "gold_intervals_original from the frozen variant manifest.",
+    "indistinguishability_ceiling": "For each task, if two or more unique candidate intervals yield identical normalized source text and only a proper subset is gold, the task is flagged lexically_indistinguishable. The ceiling (fraction of tasks where no lexical rule can guarantee a gold pick) is reported alongside every rule's metrics."
+  },
+  "metrics": {
+    "primary": "top1_localization: selected candidate's interval is an accepted gold interval.",
+    "secondary": [
+      "top5_localization",
+      "mean_reciprocal_rank",
+      "any_rank_localization"
+    ],
+    "burden": "Median, p95, p99, and maximum raw-path and unique-interval counts per stratum; fraction of tasks with more than one unique interval.",
+    "uncertainty": "Document-clustered bootstrap, 10000 resamples, seed 20260814. Paired document-level comparisons between rules.",
+    "strata": "Dataset (BOAT, BIO-BOAT) by contiguity (contiguous control, one gap, multi-gap conditions), development and held-out reported separately."
+  },
+  "procedure": {
+    "step1": "Run all frozen rules on the development split. Inspect freely.",
+    "step2": "Select the recommended rule by the predeclared criterion: highest development top-1 localization on the pooled primary non-contiguous strata; ties broken by rule simplicity in the frozen_list order (earlier is simpler).",
+    "step3": "Record the development selection in the run metadata before any held-out evaluation.",
+    "step4": "Evaluate all frozen rules on held-out exactly once. The development-selected rule is the confirmatory result; the full rule table is reported for transparency.",
+    "step5": "Categorize every held-out top-1 failure of the selected rule: lexically_indistinguishable, distinguishable_rule_error, capped, or other."
+  },
+  "cap_sweep": {
+    "status": "secondary_descriptive",
+    "caps": [1, 10, 100, 1000, 10000],
+    "report": "Retained full-reconstruction rate, retained top-1 localization of the selected rule, and truncation frequency per cap. No runtime or memory claims."
+  },
+  "outputs": {
+    "development": "data/revision_2026/selection/development/selection_records.jsonl and selection_development_summary.json",
+    "heldout": "data/revision_2026/selection/heldout_test/selection_records.jsonl and selection_heldout_summary.json",
+    "result_doc": "docs/revision_2026/selection_assessment_results.md"
+  },
+  "non_goals": [
+    "Semantic or contextual occurrence selection",
+    "Learned or tuned ranking models",
+    "Runtime or memory claims",
+    "Any change to enumeration semantics"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "candidate_cap": 100000,
+  "cap_sweep": [
+    1,
+    10,
+    100,
+    1000,
+    10000
+  ],
+  "code_hashes": {
+    "analysis/config/revision_2026/input_manifest.json": "3fa0af0a5fe318cc9024322131a05b32c8040eda7a946051709daa854c67df07",
+    "analysis/config/revision_2026/selection_assessment_spec.json": "9ebe72fc587cb327a37b50363843c688411d2fe455251c00086c3efc45ad2ee8",
+    "analysis/config/revision_2026/split_manifest.json": "d31e308379ac33fbf5d9a1ed377124f632e17d5ffd9280ccd9566c4ec1a84535",
+    "analysis/scripts/common_evaluator.py": "8bc657030db66353b05aee6a7f326158f9eec9da83009438a8f4006d93f7495f",
+    "analysis/scripts/run_corrected_baseline_matrix.py": "4553db5c46d736d51fae818c78c38a6f4926fcb8fe97a921a089f2a91da96c84",
+    "analysis/scripts/run_selection_assessment.py": "41ed40567142adbdc334a561f0b7af39dedc3fa52819f6bd3e1ab4183298a657"
+  },
+  "command": [
+    "analysis/scripts/run_selection_assessment.py",
+    "--split",
+    "heldout_test"
+  ],
+  "complete": true,
+  "development_rule_selection": {
+    "criterion": "highest development top-1 localization on pooled primary non-contiguous strata under the punctuation tokenizer; ties broken by frozen rule-list order",
+    "development_top1_rates": {
+      "earliest_interval": 0.7546845999338944,
+      "fewest_gap_characters": 0.9971142355902469,
+      "input_order": 0.7546845999338944,
+      "matched_token_density": 0.9971142355902469,
+      "shortest_interval": 0.9971142355902469
+    },
+    "selected_rule": "shortest_interval"
+  },
+  "elapsed_seconds": 159.565227,
+  "ended_at": "2026-08-14T21:23:45.325164+00:00",
+  "frozen_count_checks": 28584,
+  "input_hashes": {
+    "data/revision_2026/bioboat_records.jsonl": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a",
+    "data/revision_2026/boat_records.jsonl": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c",
+    "data/revision_2026/llmarkers_inventory.jsonl": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+  },
+  "limit": null,
+  "record_encoding": {
+    "result_fields": [
+      "full_lexical_support",
+      "candidate_count",
+      "candidate_count_truncated",
+      "unique_interval_count",
+      "gold_interval_count",
+      "any_gold_interval",
+      "lexically_indistinguishable",
+      "rule_top_intervals",
+      "rule_first_gold_ranks",
+      "cap_sweep"
+    ]
+  },
+  "records_path": "data/revision_2026/selection/heldout_test/selection_records.jsonl",
+  "records_sha256": "410b0a5df6290330428cc2d0bdb077b19a1c7ffebf1b995ebf6ccc6889113207",
+  "rules": [
+    "input_order",
+    "shortest_interval",
+    "fewest_gap_characters",
+    "matched_token_density",
+    "earliest_interval"
+  ],
+  "schema_version": "selection-assessment-run-metadata-v1",
+  "software": {
+    "numpy": "2.4.1",
+    "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "taln": "0.1.0",
+    "tiktoken": "0.12.0"
+  },
+  "split": "heldout_test",
+  "stage1_count_warning_total": 0,
+  "stage1_count_warnings": [],
+  "started_at": "2026-08-14T21:21:05.759937+00:00",
+  "summary_path": "data/revision_2026/selection/heldout_test/selection_heldout_summary.json",
+  "tasks_evaluated": 14292,
+  "tokenizers": [
+    "punctuation",
+    "cl100k_base"
+  ]
+}

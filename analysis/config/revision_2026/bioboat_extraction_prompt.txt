@@ -1,0 +1,38 @@
+**Task**
+
+Transform the full text of a scientific paper into a JSON array of `(source, targets)` pairs.
+
+**Input**
+
+Plain text of a paper, with paragraphs separated by blank lines.
+
+**Output**
+
+A JSON array where each element corresponds to one paragraph:
+
+```json
+{
+  "source": "<full paragraph text>",
+  "targets": ["<contiguous span>", ...]
+}
+```
+
+**Span rules**
+
+- Each target must be an exact, contiguous substring of its source paragraph—copy verbatim, do not paraphrase or summarize.
+- Spans may range from short phrases to full sentences.
+- Spans within a paragraph should not heavily overlap.
+
+**What to highlight**
+
+Select informative content: definitions, claims, results, comparisons, numeric values, named entities, causal or explanatory statements. Avoid filler or purely connective text.
+
+**Distribution**
+
+- Every paragraph must have at least 1 target.
+- Mean ≈ 2.4 targets per paragraph; median = 2.
+- Most paragraphs: 1–4 targets; rare paragraphs may reach 8+.
+
+**Output format**
+
+Return only valid JSON. No explanations or commentary.
