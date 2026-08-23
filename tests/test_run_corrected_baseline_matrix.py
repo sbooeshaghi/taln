@@ -4,6 +4,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "analysis" / "scripts"))
 
 from run_corrected_baseline_matrix import (
@@ -154,6 +156,11 @@ def test_method_errors_remain_in_localization_denominator():
     assert result["localization"] is False
 
 
+@pytest.mark.skipif(
+    not (DEFAULT_INPUT_ROOT / "boat_records.jsonl").exists(),
+    reason="frozen input records are not distributed with the repository; "
+    "regenerate them with analysis/scripts/prepare_revision_inputs.py",
+)
 def test_frozen_input_hashes_and_document_splits_validate():
     splits, hashes = load_and_validate_freeze(DEFAULT_INPUT_ROOT)
     assert len(hashes) == 3
