@@ -1,0 +1,263 @@
+{
+  "boundary": "All sampled tasks have complete lexical support by construction; this benchmark measures evidence production and localization, not rejection of unsupported text.",
+  "model": "claude-sonnet-4-5-20250929",
+  "phase": "development",
+  "prompt_sha256": "7c8852ea9b19cdd4da6a4b39b1597bc130aebe9c5848808fbe3207ca2cf8c3af",
+  "schema_version": "llm-baseline-summary-v1",
+  "strata": {
+    "stage1:boat:contiguous": {
+      "llm": {
+        "failure_causes": {},
+        "localization": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "hits": 96,
+          "n": 96,
+          "rate": 1.0
+        },
+        "reconstruction": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "hits": 96,
+          "n": 96,
+          "rate": 1.0
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.8,
+              0.9090909090909091
+            ],
+            "hits": 84,
+            "n": 96,
+            "rate": 0.875
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 96,
+            "n": 96,
+            "rate": 1.0
+          }
+        }
+      },
+      "tasks": 96
+    },
+    "stage1:boat:one_gap": {
+      "llm": {
+        "failure_causes": {
+          "excerpt_not_verbatim_in_source": 1
+        },
+        "localization": {
+          "ci95": [
+            0.9848484848484849,
+            1.0
+          ],
+          "hits": 103,
+          "n": 104,
+          "rate": 0.9903846153846154
+        },
+        "reconstruction": {
+          "ci95": [
+            0.9848484848484849,
+            1.0
+          ],
+          "hits": 103,
+          "n": 104,
+          "rate": 0.9903846153846154
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              0.75,
+              0.9666666666666667
+            ],
+            "hits": 92,
+            "n": 104,
+            "rate": 0.8846153846153846
+          },
+          "reconstruction": {
+            "ci95": [
+              0.9545454545454546,
+              1.0
+            ],
+            "hits": 101,
+            "n": 104,
+            "rate": 0.9711538461538461
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 104,
+            "rate": 0.0
+          },
+          "reconstruction": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 104,
+            "rate": 0.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.8,
+              0.9090909090909091
+            ],
+            "hits": 91,
+            "n": 104,
+            "rate": 0.875
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 104,
+            "n": 104,
+            "rate": 1.0
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 104,
+            "n": 104,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 104,
+            "n": 104,
+            "rate": 1.0
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 104,
+            "n": 104,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 104,
+            "n": 104,
+            "rate": 1.0
+          }
+        }
+      },
+      "tasks": 104
+    }
+  }
+}

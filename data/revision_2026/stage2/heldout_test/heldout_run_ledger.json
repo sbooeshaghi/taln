@@ -1,0 +1,10 @@
+{
+  "completed_at": "2026-08-12T20:59:49.847492+00:00",
+  "records_sha256": "6c12b6a63e35291a8f2d59fc971d76540245eae2009fddb387424e188ef0f0c5",
+  "run_fingerprint": "d47bc6b823446ea99634b5fd34e6fbd6d8a064d64dcf574284fe8525c2f3374f",
+  "schema_version": "multigap-heldout-ledger-v1",
+  "started_at": "2026-08-12T20:59:19.769427+00:00",
+  "status": "completed",
+  "tasks": 8720,
+  "variant_file_sha256": "985e539fc03c6c9247d980c05aa97fb96a7f6962da3c9f77205e1c392a326782"
+}

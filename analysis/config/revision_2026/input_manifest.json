@@ -1,0 +1,244 @@
+{
+  "datasets": {
+    "bioboat": {
+      "artifact": {
+        "bytes": 7669882,
+        "path": "data/revision_2026/bioboat_records.jsonl",
+        "rows": 5316,
+        "sha256": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a"
+      },
+      "counts": {
+        "development_documents": 41,
+        "excluded_normalization_length_change": 500,
+        "excluded_not_first_exact_occurrence": 3,
+        "excluded_target_at_most_two_whitespace_tokens": 21,
+        "expanded_rows": 5840,
+        "final_records": 5316,
+        "heldout_test_documents": 10,
+        "paper_directories": 51
+      },
+      "provenance": "51 bioRxiv papers from the January 2025 source archive; LLM-selected targets deterministically filtered to exact source substrings.",
+      "provenance_manifest": "analysis/config/revision_2026/bioboat_provenance.json"
+    },
+    "boat": {
+      "artifact": {
+        "bytes": 57633618,
+        "path": "data/revision_2026/boat_records.jsonl",
+        "rows": 35080,
+        "sha256": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c"
+      },
+      "counts": {
+        "dev": {
+          "answer_rows": 20302,
+          "documents": 35,
+          "excluded_normalization_length_change": 1530,
+          "excluded_not_first_exact_occurrence": 1011,
+          "excluded_target_at_most_two_whitespace_tokens": 10381,
+          "final_records": 4313,
+          "first_exact_occurrence": 19291
+        },
+        "train": {
+          "answer_rows": 86821,
+          "documents": 440,
+          "excluded_normalization_length_change": 7995,
+          "excluded_not_first_exact_occurrence": 2905,
+          "excluded_target_at_most_two_whitespace_tokens": 44535,
+          "final_records": 30767,
+          "first_exact_occurrence": 83916
+        }
+      },
+      "normalization_and_filtering": "Legacy BOAT cohort reconstructed from raw SQuAD using the documented exact-first-occurrence, length-preserving normalization, contextual-space shift, and target-length filters.",
+      "provenance": "SQuAD v2.0 human answers; CC BY-SA 4.0.",
+      "source_files": [
+        {
+          "bytes": 57961030,
+          "path": "data/train-v2.0.json",
+          "sha256": "091cc3f6d90f5aca93947d41d0cf19669d9bc87528ba7fe3d55adc8fa5b418bd"
+        },
+        {
+          "bytes": 6379017,
+          "path": "data/dev-v2.0.json",
+          "sha256": "c0e8571bedd117caec11a27eadec1233e15983466d8c5b07a158c76ae48067b5"
+        }
+      ]
+    },
+    "llmarkers": {
+      "artifact": {
+        "bytes": 389804,
+        "path": "data/revision_2026/llmarkers_inventory.jsonl",
+        "rows": 392,
+        "sha256": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+      },
+      "counts": {
+        "all_verified": 366,
+        "development_documents": 5,
+        "documents": 7,
+        "heldout_test_documents": 2,
+        "records": 392
+      },
+      "provenance": "Seven tracked LLMarkers evidence_llm datasets. Existing _verification fields are inventory metadata, not independent gold labels.",
+      "source_documents": [
+        {
+          "dataset": "llmarkers",
+          "dataset_id": "adipose_Emont2022",
+          "document_id": "llmarkers:adipose_Emont2022",
+          "metadata": {
+            "citation": "Emont, M.P., Jacobs, C., Essene, A.L. et al. A single-cell atlas of human and mouse white adipose tissue. Nature 603, 926\u2013933 (2022).",
+            "css_selector": "div.main-content",
+            "doi": "https://doi.org/10.1038/s41586-022-04518-2",
+            "extract_text_cmd": "cat manuscript.html | pup -r 'div.main-content' | pandoc -f html -t plain --wrap=none | python norm_text.py"
+          },
+          "metadata_file": {
+            "bytes": 382,
+            "path": "$LLMARKERS_DATA_ROOT/adipose_Emont2022/metadata.json",
+            "sha256": "9a95e1a8c1bf520010573e953730a2fd97e1ffea3217d893f85cd774370ac5ce"
+          },
+          "records_file": {
+            "bytes": 39416,
+            "path": "$LLMARKERS_DATA_ROOT/adipose_Emont2022/evidence_llm/extracted_txt.json",
+            "sha256": "a61779c8287b5fba6dc635c0ef1801306b8fecb4bde95c1cbbccc12786bc6fc1"
+          },
+          "split": "development"
+        },
+        {
+          "dataset": "llmarkers",
+          "dataset_id": "adipose_Hildreth2021",
+          "document_id": "llmarkers:adipose_Hildreth2021",
+          "metadata": {
+            "css_selector": "article",
+            "doi": "https://www.nature.com/articles/s41590-021-00922-4"
+          },
+          "metadata_file": {
+            "bytes": 95,
+            "path": "$LLMARKERS_DATA_ROOT/adipose_Hildreth2021/metadata.json",
+            "sha256": "8263a69679531dccca262fbadbbbf18378450939df78202d757e43e75d6f0031"
+          },
+          "records_file": {
+            "bytes": 80593,
+            "path": "$LLMARKERS_DATA_ROOT/adipose_Hildreth2021/evidence_llm/extracted_txt.json",
+            "sha256": "7914f3a0a9fcc5301ef303883e3e85f460df1573cd05e865c8e53792353fcee9"
+          },
+          "split": "development"
+        },
+        {
+          "dataset": "llmarkers",
+          "dataset_id": "bone_He2021",
+          "document_id": "llmarkers:bone_He2021",
+          "metadata": {
+            "citation": "He, J., Yan, J., Wang, J. et al. Dissecting human embryonic skeletal stem cell ontogeny by single-cell transcriptomic and functional analyses. Cell Res 31, 742\u2013757 (2021).",
+            "css_selector": "article",
+            "doi": "https://doi.org/10.1038/s41422-021-00467-z",
+            "extract_text_cmd": "cat manuscript.html | pup 'article' | pandoc -f html -t plain > manuscript.txt"
+          },
+          "metadata_file": {
+            "bytes": 382,
+            "path": "$LLMARKERS_DATA_ROOT/bone_He2021/metadata.json",
+            "sha256": "e9522ce77eb53bff531abb45dd6f5156b44620cdfa33154be68b5c57ffa040fd"
+          },
+          "records_file": {
+            "bytes": 48064,
+            "path": "$LLMARKERS_DATA_ROOT/bone_He2021/evidence_llm/extracted_txt.json",
+            "sha256": "d3070074868082c68838a2ea70d87032f8e3af723aeb5f08a108dd56cd742d88"
+          },
+          "split": "heldout_test"
+        },
+        {
+          "dataset": "llmarkers",
+          "dataset_id": "eye_Gautam2021",
+          "document_id": "llmarkers:eye_Gautam2021",
+          "metadata": {
+            "citation": "Gautam, P., Hamashima, K., Chen, Y. et al. Multi-species single-cell transcriptomic analysis of ocular compartment regulons. Nat Commun 12, 5675 (2021).",
+            "css_selector": "article",
+            "doi": "https://doi.org/10.1038/s41467-021-25968-8",
+            "extract_text_cmd": "cat manuscript.html | pup 'article' | pandoc -f html -t plain > manuscript.txt"
+          },
+          "metadata_file": {
+            "bytes": 361,
+            "path": "$LLMARKERS_DATA_ROOT/eye_Gautam2021/metadata.json",
+            "sha256": "5cea08a0d94e19bbf5c998be359760376fd5419582e54cb69f1814fb5370c8ae"
+          },
+          "records_file": {
+            "bytes": 46121,
+            "path": "$LLMARKERS_DATA_ROOT/eye_Gautam2021/evidence_llm/extracted_txt.json",
+            "sha256": "866c681885c0c587f7ae513dcaaefa5c36461eb935f3c8c1512b268c0bbbcf41"
+          },
+          "split": "development"
+        },
+        {
+          "dataset": "llmarkers",
+          "dataset_id": "lung_Adams2020",
+          "document_id": "llmarkers:lung_Adams2020",
+          "metadata": {
+            "citation": "Adams, T.S., Schupp, J.C., Poli, S., Ayaub, E.A., Neumark, N., Ahangari, F., Chu, S.G., Raby, B.A., DeIuliis, G., Januszyk, M. and Duan, Q., 2020. Single-cell RNA-seq reveals ectopic and aberrant lung-resident cell populations in idiopathic pulmonary fibrosis. Science advances, 6(28), p.eaba1983.",
+            "css_selector": "article",
+            "doi": "https://doi.org/10.1126/sciadv.aba1983",
+            "extract_text_cmd": "cat manuscript.html | pup 'article' | pandoc -f html -t plain > manuscript.txt"
+          },
+          "metadata_file": {
+            "bytes": 502,
+            "path": "$LLMARKERS_DATA_ROOT/lung_Adams2020/metadata.json",
+            "sha256": "9bec16e551c43c5eadf23ac68e593204707c4643becd7ed20fb7571e1e3ea422"
+          },
+          "records_file": {
+            "bytes": 60292,
+            "path": "$LLMARKERS_DATA_ROOT/lung_Adams2020/evidence_llm/extracted_txt.json",
+            "sha256": "6c7505fd47a638401b9f79d3288a532b5fb79136d45767a01d06f997d3b63497"
+          },
+          "split": "heldout_test"
+        },
+        {
+          "dataset": "llmarkers",
+          "dataset_id": "ovary_Wagner2020",
+          "document_id": "llmarkers:ovary_Wagner2020",
+          "metadata": {
+            "citation": "Wagner, M., Yoshihara, M., Douagi, I. et al. Single-cell analysis of human ovarian cortex identifies distinct cell populations but no oogonial stem cells. Nat Commun 11, 1147 (2020).",
+            "css_selector": "article",
+            "doi": "https://doi.org/10.1038/s41467-020-14936-3",
+            "extract_text_cmd": "cat manuscript.html | pup 'article' | pandoc -f html -t plain > manuscript.txt"
+          },
+          "metadata_file": {
+            "bytes": 391,
+            "path": "$LLMARKERS_DATA_ROOT/ovary_Wagner2020/metadata.json",
+            "sha256": "893102aee0297eb5e60278f14e47e0093daee44c707e611272dd20a9a8f2a74a"
+          },
+          "records_file": {
+            "bytes": 33183,
+            "path": "$LLMARKERS_DATA_ROOT/ovary_Wagner2020/evidence_llm/extracted_txt.json",
+            "sha256": "70d86184ccba98013db4fbcc8fe6a6aa795b78968d862f7f9dd11151b65e5ae3"
+          },
+          "split": "development"
+        },
+        {
+          "dataset": "llmarkers",
+          "dataset_id": "testis_Shamis2020",
+          "document_id": "llmarkers:testis_Shamis2020",
+          "metadata": {
+            "citation": "Shami, A.N., Zheng, X., Munyoki, S.K., Ma, Q., Manske, G.L., Green, C.D., Sukhwani, M., Orwig, K.E., Li, J.Z. and Hammoud, S.S., 2020. Single-cell RNA sequencing of human, macaque, and mouse testes uncovers conserved and divergent features of mammalian spermatogenesis. Developmental cell, 54(4), pp.529-547.",
+            "css_selector": "div.core-container",
+            "doi": "https://doi.org/10.1016/j.devcel.2020.05.010",
+            "extract_text_cmd": "cat manuscript.html | pup 'div.core-container' | pandoc -f html -t plain > manuscript.txt"
+          },
+          "metadata_file": {
+            "bytes": 541,
+            "path": "$LLMARKERS_DATA_ROOT/testis_Shamis2020/metadata.json",
+            "sha256": "fd49c4f48026758431c2a61d00c146d88dca5a0a7a15a348b675ee86b8c6444f"
+          },
+          "records_file": {
+            "bytes": 97920,
+            "path": "$LLMARKERS_DATA_ROOT/testis_Shamis2020/evidence_llm/extracted_txt.json",
+            "sha256": "70f67224721d6009162469c70cf384d946947aa4b16389d5a4b4bb36d27582e1"
+          },
+          "split": "development"
+        }
+      ]
+    }
+  },
+  "llmarkers_repository_commit": "26c537710beb3ff4c3b6b755736108457ce5eb4e",
+  "path_locators": {
+    "llmarkers_data_root_default": "../llmarkers/data",
+    "llmarkers_data_root_environment_variable": "LLMARKERS_DATA_ROOT",
+    "repository_root": "."
+  },
+  "schema_version": "revision-2026-stage0-v1",
+  "taln_repository_commit": "64e7c287733b7286c39d4fe68369a98669571231"
+}

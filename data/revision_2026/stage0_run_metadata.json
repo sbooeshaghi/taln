@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/Users/sinabooeshaghi/projects/markergeneextraction/taln/.venv/bin/python3",
+    "analysis/scripts/prepare_revision_inputs.py"
+  ],
+  "input_manifest_sha256": "3fa0af0a5fe318cc9024322131a05b32c8040eda7a946051709daa854c67df07",
+  "llmarkers_repository_commit": "26c537710beb3ff4c3b6b755736108457ce5eb4e",
+  "machine": "arm64",
+  "packages": {
+    "taln": "0.1.0",
+    "tiktoken": "0.12.0",
+    "unidecode": "1.4.0"
+  },
+  "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+  "processor": "arm",
+  "python": "3.13.1 (main, Dec  6 2024, 20:13:21) [Clang 18.1.8 ]",
+  "random_seed": null,
+  "run_timestamp_utc": "2026-08-12T18:08:42.599234+00:00",
+  "schema_version": "revision-2026-stage0-v1",
+  "split_manifest_sha256": "d31e308379ac33fbf5d9a1ed377124f632e17d5ffd9280ccd9566c4ec1a84535",
+  "taln_repository_commit": "64e7c287733b7286c39d4fe68369a98669571231"
+}

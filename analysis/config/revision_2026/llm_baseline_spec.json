@@ -1,0 +1,75 @@
+{
+  "schema_version": "revision-2026-llm-baseline-spec-v1",
+  "status": "frozen",
+  "prepared_on": "2026-08-14",
+  "frozen_on": "2026-08-14",
+  "frozen_by": "author approval in revision working session",
+  "freeze_rule": "This spec and the final prompt text must be approved by the author and frozen before any held-out evaluation. Prompt development uses the development split only.",
+  "purpose": "Measure how well a single LLM performs the same lexical task the alignment methods perform: full lexical reconstruction and source localization of submitted text. Provides a direct comparison between a generative model and the exact alignment methods on this paper's task and metrics.",
+  "interpretation": "The model is evaluated as another method on the lexical task, under the same evaluator and metrics as the alignment methods. This is not LLM-as-judge semantic evaluation. It does not measure whether the model can judge semantic correctness, and no accuracy-replacement claim may be made from it.",
+  "boundary": "All benchmark tasks have complete lexical support by construction. The benchmark therefore measures whether the model can produce and locate the supporting evidence. It does not measure rejection of unsupported text, and the results document must state this.",
+  "clarifications": [
+    "Verbatim means verbatim under the evaluator's shared normalization (taln norm_text_with_mapping), applied identically to model excerpts, method inputs, and the source. Raw-character identity is not required on either side.",
+    "Localization is scored set-valued for every method and for the model: success means some gold-consistent complete ordered alignment exists within the produced evidence. The model is not compared against any single-selection (top-1) rule.",
+    "The evaluated model is the same model family used to generate the original BIO-BOAT extractions. The task here is lexical evidence production over verbatim source text, but this provenance overlap is disclosed wherever the comparison is reported.",
+    "Temperature 0 does not guarantee identical outputs across runs; the reported result is conditional on one recorded run. Bootstrap intervals capture document sampling only."
+  ],
+  "model": {
+    "name": "claude-sonnet-4-5-20250929",
+    "rationale": "The spec originally pinned claude-sonnet-4-20250514, the model used by taln extract and recorded in the BIO-BOAT extraction provenance. That snapshot was retired from the API before any successful call (404 responses recorded in the raw development log, 2026-08-14). claude-sonnet-4-5-20250929 is the nearest available dated snapshot in the same model family and was substituted before any scored run; the provenance-overlap disclosure below applies to the family, not one snapshot.",
+    "temperature": 0,
+    "max_retries_transient": 3,
+    "logging": "Record request parameters, timestamps, raw responses, and API version for every call. Raw responses are immutable artifacts."
+  },
+  "task_protocol": {
+    "input": "The model receives the source passage and the submitted target text, nothing else.",
+    "instruction": "Report whether every word of the target appears in the source in the same order, and return the verbatim source excerpt or excerpts that contain those words, in order. Exact wording frozen in llm_baseline_prompt.txt after development.",
+    "offset_derivation": "The model is never asked for character positions. Returned excerpts are located in the source by exact string search; each located excerpt yields original-source intervals. An excerpt that does not occur verbatim in the source yields no interval.",
+    "scoring": {
+      "llm_reconstruction": "The returned excerpts, concatenated in order and tokenized with the punctuation-aware tokenizer, provide complete ordered lexical support for the target, verified by the existing evaluator.",
+      "llm_localization": "The derived intervals match an accepted gold interval set under the same acceptance rule applied to the alignment methods.",
+      "failure_handling": "Refusals, malformed responses, unlocatable excerpts, and exhausted retries count as failures and remain in the denominator, itemized by cause."
+    },
+    "symmetry": "The alignment methods are scored on exactly the same sampled tasks with exactly the same evaluator, so every comparison is symmetric."
+  },
+  "sampling": {
+    "unit": "document",
+    "design": "Document-clustered random sample, seed 20260814, drawn from the frozen split manifest.",
+    "stage1_sample": "Held-out documents sampled until reaching approximately 500 one-gap tasks and 250 contiguous tasks per dataset (BOAT, BIO-BOAT); approximately 1500 Stage 1 tasks total.",
+    "stage2_sample": "From the same sampled held-out documents, all variants of the most severe condition (3 gaps, width 3); approximately 300-500 tasks.",
+    "development_sample": "A disjoint document-clustered development sample of up to 200 tasks for prompt development. Development tasks and documents never enter the held-out sample.",
+    "budget_note": "Roughly 2000 held-out calls at passage scale. Estimated cost is low; the estimate is recorded in run metadata before launch."
+  },
+  "metrics": {
+    "primary": "llm_reconstruction and llm_localization versus the same rates for taln, exact substring, LCS, difflib, and semi-global on the identical task sample.",
+    "uncertainty": "Document-clustered bootstrap, 10000 resamples, seed 20260814. Paired document-level comparisons between the model and each method.",
+    "strata": "Dataset by contiguity condition; Stage 2 severe condition reported separately.",
+    "determinism_note": "Model outputs are not guaranteed deterministic at temperature 0. The run is executed once; no resampling of the model for better results."
+  },
+  "frozen_prompt_sha256": "7c8852ea9b19cdd4da6a4b39b1597bc130aebe9c5848808fbe3207ca2cf8c3af",
+  "prompt_freeze_note": "Prompt v2 frozen 2026-08-14 after two development iterations on the 200-task development sample only (v1: bare rule statement, model answered the phrase question instead of the word-subsequence question, 32/104 one-gap false negatives; v2: explicit subsequence definition, worked example, brief reasoning before final JSON; 199/200). All development raw responses for both versions are preserved with per-row prompt hashes.",
+  "amendments": [
+    {
+      "date": "2026-08-16",
+      "change": "Multi-gap coverage extension. The original held-out sample evaluated the model at three conditions per dataset (contiguous, one gap, three gaps of width three). To report the model across all nine gap-count by gap-width conditions, a document-clustered extension sample (seed 20260816) draws held-out multi-gap base records per dataset (target 150 records, whole documents) and evaluates every primary non-contiguous variant of each sampled record under the same frozen prompt, model snapshot, temperature, and scoring. No prompt, scoring, or model change accompanies this extension; results are reported per condition alongside the original sample."
+    },
+    {
+      "date": "2026-08-16",
+      "change": "Rebalanced multi-gap sample. The whole-document draw above admitted documents in proportion to their record counts, so one BIO-BOAT document contributed 84 of 202 sampled records and, because it refused every request, dominated the document-clustered interval. The multi-gap sample is therefore redrawn to cover every held-out multi-gap document (10 BIO-BOAT, 27 BOAT) with at most 10 base records per document, selected deterministically by SHA-256 of the record identifier. Every document carries equal maximum weight, matching the resampling unit. Prompt, model snapshot, temperature, scoring, and the underlying frozen variants are unchanged, and responses already collected under the frozen prompt are reused rather than re-requested."
+    }
+  ],
+  "outputs": {
+    "prompt": "analysis/config/revision_2026/llm_baseline_prompt.txt",
+    "development": "data/revision_2026/llm_baseline/development/llm_baseline_records.jsonl and summary",
+    "heldout": "data/revision_2026/llm_baseline/heldout_test/llm_baseline_records.jsonl and summary",
+    "raw_responses": "data/revision_2026/llm_baseline/raw/ (immutable)",
+    "result_doc": "docs/revision_2026/llm_baseline_results.md"
+  },
+  "non_goals": [
+    "LLM-as-judge semantic evaluation",
+    "Negative-control or unsupported-text detection benchmarking",
+    "Multi-model comparison",
+    "Prompt optimization beyond the development split",
+    "Cost or latency headline claims"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "multigap-variant-freeze-v2",
+  "frozen_on": "2026-08-12",
+  "revision_reason": "The variant file and evaluation matrix are unchanged. Development-only evidence was used to freeze corrected interpretation, metric labels, descriptive contrasts, and the held-out ledger policy before held-out evaluation.",
+  "generator_commit": "961ac62",
+  "variant_file": {
+    "path": "data/revision_2026/stage2/multigap_variants.jsonl",
+    "sha256": "985e539fc03c6c9247d980c05aa97fb96a7f6962da3c9f77205e1c392a326782",
+    "rows": 58630
+  },
+  "split_rows": {
+    "development": 49910,
+    "heldout_test": 8720
+  },
+  "dataset_split_rows": {
+    "bioboat::development": 24960,
+    "bioboat::heldout_test": 5350,
+    "boat::development": 24950,
+    "boat::heldout_test": 3370
+  },
+  "unique_base_records": 5863,
+  "variants_per_base_record": 10,
+  "variant_status_rows": {
+    "contiguous_control": 5863,
+    "primary_noncontiguous": 52767,
+    "still_contiguous_control": 0
+  },
+  "input_hashes": {
+    "data/revision_2026/bioboat_records.jsonl": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a",
+    "data/revision_2026/boat_records.jsonl": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c",
+    "data/revision_2026/llmarkers_inventory.jsonl": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+  },
+  "stage2_spec": {
+    "path": "analysis/config/revision_2026/stage2_spec.json",
+    "sha256": "61cda794dfa32e722ed767eb247e81f9576eb6378d7758d65bde7fa66366f7d8"
+  },
+  "generator": {
+    "path": "analysis/scripts/prepare_multigap_variants.py",
+    "sha256": "d0f59e7c36102278dd045aea881d97f671b01d4c1dd246d6851b87babd63d747"
+  },
+  "heldout_rule": "The complete variant file was generated and hashed before any Stage 2 alignment outcomes were evaluated. The held-out subset may be evaluated once with the frozen Stage 2 matrix."
+}

@@ -1,0 +1,788 @@
+{
+  "boundary": "All sampled tasks have complete lexical support by construction; this benchmark measures evidence production and localization, not rejection of unsupported text.",
+  "model": "claude-sonnet-4-5-20250929",
+  "phase": "heldout_test",
+  "prompt_sha256": "7c8852ea9b19cdd4da6a4b39b1597bc130aebe9c5848808fbe3207ca2cf8c3af",
+  "schema_version": "llm-baseline-summary-v1",
+  "strata": {
+    "stage1:bioboat:contiguous": {
+      "llm": {
+        "failure_causes": {
+          "excerpts_do_not_support_target": 1,
+          "model_refusal_or_empty_reply": 12,
+          "unparseable_response": 2
+        },
+        "localization": {
+          "ci95": [
+            0.7619047619047619,
+            1.0
+          ],
+          "hits": 283,
+          "n": 298,
+          "rate": 0.9496644295302014
+        },
+        "reconstruction": {
+          "ci95": [
+            0.7619047619047619,
+            1.0
+          ],
+          "hits": 283,
+          "n": 298,
+          "rate": 0.9496644295302014
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.6111111111111112,
+              0.6880733944954128
+            ],
+            "hits": 194,
+            "n": 298,
+            "rate": 0.6510067114093959
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 298,
+            "n": 298,
+            "rate": 1.0
+          }
+        }
+      },
+      "tasks": 298
+    },
+    "stage1:bioboat:one_gap": {
+      "llm": {
+        "failure_causes": {
+          "declared_unsupported": 4,
+          "evidence_outside_gold_location": 4,
+          "excerpt_not_verbatim_in_source": 1,
+          "excerpts_do_not_support_target": 1,
+          "model_refusal_or_empty_reply": 16,
+          "unparseable_response": 3
+        },
+        "localization": {
+          "ci95": [
+            0.8833333333333333,
+            0.9843478260869565
+          ],
+          "hits": 595,
+          "n": 624,
+          "rate": 0.9535256410256411
+        },
+        "reconstruction": {
+          "ci95": [
+            0.8904761904761904,
+            0.9929947460595446
+          ],
+          "hits": 599,
+          "n": 624,
+          "rate": 0.9599358974358975
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              0.9774859287054409,
+              1.0
+            ],
+            "hits": 619,
+            "n": 624,
+            "rate": 0.9919871794871795
+          },
+          "reconstruction": {
+            "ci95": [
+              0.993798449612403,
+              1.0
+            ],
+            "hits": 622,
+            "n": 624,
+            "rate": 0.9967948717948718
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 624,
+            "rate": 0.0
+          },
+          "reconstruction": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 624,
+            "rate": 0.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.6427104722792608,
+              0.9017964071856287
+            ],
+            "hits": 484,
+            "n": 624,
+            "rate": 0.7756410256410257
+          },
+          "reconstruction": {
+            "ci95": [
+              0.993798449612403,
+              1.0
+            ],
+            "hits": 622,
+            "n": 624,
+            "rate": 0.9967948717948718
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              0.9831144465290806,
+              1.0
+            ],
+            "hits": 620,
+            "n": 624,
+            "rate": 0.9935897435897436
+          },
+          "reconstruction": {
+            "ci95": [
+              0.993798449612403,
+              1.0
+            ],
+            "hits": 622,
+            "n": 624,
+            "rate": 0.9967948717948718
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              0.9821428571428571,
+              1.0
+            ],
+            "hits": 620,
+            "n": 624,
+            "rate": 0.9935897435897436
+          },
+          "reconstruction": {
+            "ci95": [
+              0.993798449612403,
+              1.0
+            ],
+            "hits": 622,
+            "n": 624,
+            "rate": 0.9967948717948718
+          }
+        }
+      },
+      "tasks": 624
+    },
+    "stage1:boat:contiguous": {
+      "llm": {
+        "failure_causes": {
+          "excerpts_do_not_support_target": 1
+        },
+        "localization": {
+          "ci95": [
+            0.9934640522875817,
+            1.0
+          ],
+          "hits": 362,
+          "n": 363,
+          "rate": 0.9972451790633609
+        },
+        "reconstruction": {
+          "ci95": [
+            0.9934640522875817,
+            1.0
+          ],
+          "hits": 362,
+          "n": 363,
+          "rate": 0.9972451790633609
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.7124183006535948,
+              0.7702702702702703
+            ],
+            "hits": 263,
+            "n": 363,
+            "rate": 0.7245179063360881
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 363,
+            "n": 363,
+            "rate": 1.0
+          }
+        }
+      },
+      "tasks": 363
+    },
+    "stage1:boat:one_gap": {
+      "llm": {
+        "failure_causes": {
+          "declared_unsupported": 3,
+          "evidence_outside_gold_location": 8,
+          "excerpts_do_not_support_target": 3
+        },
+        "localization": {
+          "ci95": [
+            0.9653767820773931,
+            0.9834437086092715
+          ],
+          "hits": 519,
+          "n": 533,
+          "rate": 0.9737335834896811
+        },
+        "reconstruction": {
+          "ci95": [
+            0.9823529411764705,
+            0.9971098265895953
+          ],
+          "hits": 527,
+          "n": 533,
+          "rate": 0.9887429643527205
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              0.8020833333333334,
+              0.8834745762711864
+            ],
+            "hits": 456,
+            "n": 533,
+            "rate": 0.8555347091932458
+          },
+          "reconstruction": {
+            "ci95": [
+              0.9375,
+              0.9740082079343365
+            ],
+            "hits": 512,
+            "n": 533,
+            "rate": 0.9606003752345216
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 533,
+            "rate": 0.0
+          },
+          "reconstruction": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 533,
+            "rate": 0.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.71499176276771,
+              0.7886710239651417
+            ],
+            "hits": 398,
+            "n": 533,
+            "rate": 0.7467166979362101
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 533,
+            "n": 533,
+            "rate": 1.0
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              0.9817708333333334,
+              0.9937238493723849
+            ],
+            "hits": 527,
+            "n": 533,
+            "rate": 0.9887429643527205
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 533,
+            "n": 533,
+            "rate": 1.0
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              0.9949238578680203,
+              1.0
+            ],
+            "hits": 532,
+            "n": 533,
+            "rate": 0.99812382739212
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 533,
+            "n": 533,
+            "rate": 1.0
+          }
+        }
+      },
+      "tasks": 533
+    },
+    "stage2:bioboat:gaps3_width3": {
+      "llm": {
+        "failure_causes": {
+          "declared_unsupported": 1,
+          "evidence_outside_gold_location": 4,
+          "excerpt_not_verbatim_in_source": 2,
+          "model_refusal_or_empty_reply": 18,
+          "unparseable_response": 2
+        },
+        "localization": {
+          "ci95": [
+            0.8245614035087719,
+            0.9664804469273743
+          ],
+          "hits": 288,
+          "n": 315,
+          "rate": 0.9142857142857143
+        },
+        "reconstruction": {
+          "ci95": [
+            0.8333333333333334,
+            0.9804469273743017
+          ],
+          "hits": 292,
+          "n": 315,
+          "rate": 0.926984126984127
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              0.8494623655913979,
+              0.922077922077922
+            ],
+            "hits": 279,
+            "n": 315,
+            "rate": 0.8857142857142857
+          },
+          "reconstruction": {
+            "ci95": [
+              0.9304635761589404,
+              0.9636363636363636
+            ],
+            "hits": 298,
+            "n": 315,
+            "rate": 0.946031746031746
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 315,
+            "rate": 0.0
+          },
+          "reconstruction": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 315,
+            "rate": 0.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.6312292358803987,
+              0.8558139534883721
+            ],
+            "hits": 227,
+            "n": 315,
+            "rate": 0.7206349206349206
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 315,
+            "n": 315,
+            "rate": 1.0
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 315,
+            "rate": 0.0
+          },
+          "reconstruction": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 315,
+            "rate": 0.0
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              0.9893617021276596,
+              1.0
+            ],
+            "hits": 314,
+            "n": 315,
+            "rate": 0.9968253968253968
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 315,
+            "n": 315,
+            "rate": 1.0
+          }
+        }
+      },
+      "tasks": 315
+    },
+    "stage2:boat:gaps3_width3": {
+      "llm": {
+        "failure_causes": {},
+        "localization": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "hits": 20,
+          "n": 20,
+          "rate": 1.0
+        },
+        "reconstruction": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "hits": 20,
+          "n": 20,
+          "rate": 1.0
+        }
+      },
+      "methods": {
+        "difflib": {
+          "localization": {
+            "ci95": [
+              0.6666666666666666,
+              1.0
+            ],
+            "hits": 16,
+            "n": 20,
+            "rate": 0.8
+          },
+          "reconstruction": {
+            "ci95": [
+              0.6666666666666666,
+              1.0
+            ],
+            "hits": 18,
+            "n": 20,
+            "rate": 0.9
+          }
+        },
+        "exact": {
+          "localization": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 20,
+            "rate": 0.0
+          },
+          "reconstruction": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 20,
+            "rate": 0.0
+          }
+        },
+        "lcs": {
+          "localization": {
+            "ci95": [
+              0.5,
+              0.625
+            ],
+            "hits": 11,
+            "n": 20,
+            "rate": 0.55
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 20,
+            "n": 20,
+            "rate": 1.0
+          }
+        },
+        "semi_global_exact": {
+          "localization": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 20,
+            "rate": 0.0
+          },
+          "reconstruction": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "hits": 0,
+            "n": 20,
+            "rate": 0.0
+          }
+        },
+        "taln": {
+          "localization": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 20,
+            "n": 20,
+            "rate": 1.0
+          },
+          "reconstruction": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "hits": 20,
+            "n": 20,
+            "rate": 1.0
+          }
+        }
+      },
+      "tasks": 20
+    }
+  }
+}

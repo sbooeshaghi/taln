@@ -1,0 +1,1313 @@
+{
+  "conversion": {
+    "exact_command": null,
+    "input": "bioRxiv source XML",
+    "output": "paper.md",
+    "status": "output preserved; exact conversion command/version not preserved"
+  },
+  "documents": [
+    {
+      "bibliography": {
+        "bytes": 392,
+        "path": "tests/papers/00396a9a-780e-1014-a23f-b0246bd365b2/paper.bib",
+        "sha256": "df1da5b9af344f9cd0af731d726962d5d29fa4d9b9bdc3e5894979de3c5bcc8e"
+      },
+      "dataset": "bioboat",
+      "document_id": "00396a9a-780e-1014-a23f-b0246bd365b2",
+      "doi": "10.1101/2024.08.13.607210",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 59995,
+        "path": "tests/papers/00396a9a-780e-1014-a23f-b0246bd365b2/paper.md",
+        "sha256": "6e71cec272fe08bc59b3126657f3b856f877ef29be0739c8e74cbf49a7f8ca31"
+      },
+      "source_records": {
+        "bytes": 92852,
+        "path": "tests/papers/00396a9a-780e-1014-a23f-b0246bd365b2/boat.json",
+        "sha256": "7545482eb7062becf4f6cec64d780624d5262a27abed1762fcc82e75024184d4"
+      },
+      "split": "development",
+      "title": "Opto-CLIP reveals dynamic FMRP regulation of mRNAs upon CA1 neuronal activation",
+      "url": "http://dx.doi.org/10.1101/2024.08.13.607210"
+    },
+    {
+      "bibliography": {
+        "bytes": 476,
+        "path": "tests/papers/09c14dbf-7690-1014-ab11-e88a9b0a1db1/paper.bib",
+        "sha256": "2d3fa5bd8169865765bcb5bf10edb02e40dcef8be499fe35f9a2c888ea7df6ac"
+      },
+      "dataset": "bioboat",
+      "document_id": "09c14dbf-7690-1014-ab11-e88a9b0a1db1",
+      "doi": "10.1101/2024.11.09.622800",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 48307,
+        "path": "tests/papers/09c14dbf-7690-1014-ab11-e88a9b0a1db1/paper.md",
+        "sha256": "39129e1bebda8775d145efe51642b3530df9ffeaa5e64164981ea38b72d75645"
+      },
+      "source_records": {
+        "bytes": 88444,
+        "path": "tests/papers/09c14dbf-7690-1014-ab11-e88a9b0a1db1/boat.json",
+        "sha256": "922658a53c0c85d0f67a463e3f2206fc579dafb5dcdcb4ec5f22029d1bfb451b"
+      },
+      "split": "development",
+      "title": "KaMLs for Predicting Protein p K a Values and Ionization States: Are Trees All You Need?",
+      "url": "http://dx.doi.org/10.1101/2024.11.09.622800"
+    },
+    {
+      "bibliography": {
+        "bytes": 360,
+        "path": "tests/papers/0a8ee49f-73aa-1014-827f-9336b55f8834/paper.bib",
+        "sha256": "102f0555301198a808dddba5ed75647ca4b8aa757536cf243c8541827ac9a64e"
+      },
+      "dataset": "bioboat",
+      "document_id": "0a8ee49f-73aa-1014-827f-9336b55f8834",
+      "doi": "10.1101/2024.12.19.628874",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 23851,
+        "path": "tests/papers/0a8ee49f-73aa-1014-827f-9336b55f8834/paper.md",
+        "sha256": "f560dfbec9aef73d22891eda6b398caf051742f2764eebe83e84f74433e25edd"
+      },
+      "source_records": {
+        "bytes": 93837,
+        "path": "tests/papers/0a8ee49f-73aa-1014-827f-9336b55f8834/boat.json",
+        "sha256": "c27330f88b8346babe769d8950402b0ac1de646ab3b8e3ed86b375b6ac1695c0"
+      },
+      "split": "heldout_test",
+      "title": "Quantum chemical properties of chlorinated polycyclic aromatic hydrocarbons for delta machine learning",
+      "url": "http://dx.doi.org/10.1101/2024.12.19.628874"
+    },
+    {
+      "bibliography": {
+        "bytes": 540,
+        "path": "tests/papers/11321b65-6d92-1014-bb1f-d58d6e560d54/paper.bib",
+        "sha256": "db255812642d1ca078e0d17f68b2382caf31623e5c6d1fcbc688e900d645aa4c"
+      },
+      "dataset": "bioboat",
+      "document_id": "11321b65-6d92-1014-bb1f-d58d6e560d54",
+      "doi": "10.1101/2024.10.08.617086",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 43390,
+        "path": "tests/papers/11321b65-6d92-1014-bb1f-d58d6e560d54/paper.md",
+        "sha256": "88c97edcf62709ebd0b2e41c91b28f9de19890e09a39c6b1d2d68dc805d270a5"
+      },
+      "source_records": {
+        "bytes": 143679,
+        "path": "tests/papers/11321b65-6d92-1014-bb1f-d58d6e560d54/boat.json",
+        "sha256": "e46832d51bb888078ad91a278d39d9ec187495c98fd4ff7e75e3a477f1348126"
+      },
+      "split": "development",
+      "title": "Torsion-Induced Traumatic Optic Neuropathy (TITON): A Physiologically Relevant Animal Model of Traumatic Optic Neuropathy",
+      "url": "http://dx.doi.org/10.1101/2024.10.08.617086"
+    },
+    {
+      "bibliography": {
+        "bytes": 751,
+        "path": "tests/papers/15e3a72d-73aa-1014-84f4-909eecab33ed/paper.bib",
+        "sha256": "602bb24b9824fa8d227bb18a5d8febbe11713741657d1d00259356b47c723b8f"
+      },
+      "dataset": "bioboat",
+      "document_id": "15e3a72d-73aa-1014-84f4-909eecab33ed",
+      "doi": "10.1101/2024.12.21.628999",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 79786,
+        "path": "tests/papers/15e3a72d-73aa-1014-84f4-909eecab33ed/paper.md",
+        "sha256": "066ba74f794bb75eea4327f3f32d352652fa6f87c311e57a5177a289cfdf3c35"
+      },
+      "source_records": {
+        "bytes": 128753,
+        "path": "tests/papers/15e3a72d-73aa-1014-84f4-909eecab33ed/boat.json",
+        "sha256": "c941d553133e81b65b1d5228adb8a40b8f0c50e067813467512b0e201a1a1250"
+      },
+      "split": "development",
+      "title": "Double crossed? Structural and computational studies of an unusual crosslinked heme in Methylococcus capsulatus cytochrome P460",
+      "url": "http://dx.doi.org/10.1101/2024.12.21.628999"
+    },
+    {
+      "bibliography": {
+        "bytes": 622,
+        "path": "tests/papers/1c80e09c-6dd8-1014-bb0d-8aa89157bd25/paper.bib",
+        "sha256": "86270d7a5ed4225ac95714b985d49a67fdc0667296762d694aa8d4e38b46f8e0"
+      },
+      "dataset": "bioboat",
+      "document_id": "1c80e09c-6dd8-1014-bb0d-8aa89157bd25",
+      "doi": "10.1101/2025.01.17.632993",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 46685,
+        "path": "tests/papers/1c80e09c-6dd8-1014-bb0d-8aa89157bd25/paper.md",
+        "sha256": "21e8bebcea747c9c577cdf837c72c1af1ed9db33a47c64e8781355fec116b3df"
+      },
+      "source_records": {
+        "bytes": 122386,
+        "path": "tests/papers/1c80e09c-6dd8-1014-bb0d-8aa89157bd25/boat.json",
+        "sha256": "8a4d4ac11f7302df7d5575a03ccdb2e4722b0b0824fcd223a6a97318ec12d14e"
+      },
+      "split": "development",
+      "title": "Integrated analysis of protein sequence and structure redefines viral diversity and the taxonomy of the Flaviviridae",
+      "url": "http://dx.doi.org/10.1101/2025.01.17.632993"
+    },
+    {
+      "bibliography": {
+        "bytes": 409,
+        "path": "tests/papers/1e100fb3-6f4f-1014-86bd-b3a141de5a3a/paper.bib",
+        "sha256": "2ec2be9ef9d7dc72053807a1482896d472790a809a012dbfe1ac37924dfaa442"
+      },
+      "dataset": "bioboat",
+      "document_id": "1e100fb3-6f4f-1014-86bd-b3a141de5a3a",
+      "doi": "10.1101/2024.03.23.586267",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 42578,
+        "path": "tests/papers/1e100fb3-6f4f-1014-86bd-b3a141de5a3a/paper.md",
+        "sha256": "301745cb826cc22056f03332ce7404eda464a9784de05293d5f0abc81685fc89"
+      },
+      "source_records": {
+        "bytes": 134520,
+        "path": "tests/papers/1e100fb3-6f4f-1014-86bd-b3a141de5a3a/boat.json",
+        "sha256": "2f906914a2a27d82b7a9429512d2de7d9aaec1ed7cbaf4ac43de716fe48b0338"
+      },
+      "split": "development",
+      "title": "Molecular Dynamics Study of \u03b1-Synuclein Domain Deletion Mutant Monomers",
+      "url": "http://dx.doi.org/10.1101/2024.03.23.586267"
+    },
+    {
+      "bibliography": {
+        "bytes": 539,
+        "path": "tests/papers/210fd9b3-720d-1014-a833-b63dde3ca0bd/paper.bib",
+        "sha256": "440d12b93803e4c2fb0e65bade06a3c1e7059e407320a4275bd4230b810eb6b8"
+      },
+      "dataset": "bioboat",
+      "document_id": "210fd9b3-720d-1014-a833-b63dde3ca0bd",
+      "doi": "10.1101/2025.01.06.631621",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 34051,
+        "path": "tests/papers/210fd9b3-720d-1014-a833-b63dde3ca0bd/paper.md",
+        "sha256": "e832cab4991e9ec6671851252aae9ce483873f8bfec267f3f8929e7d20af8ba0"
+      },
+      "source_records": {
+        "bytes": 90306,
+        "path": "tests/papers/210fd9b3-720d-1014-a833-b63dde3ca0bd/boat.json",
+        "sha256": "0f6225512c0b95e1ac3544f3bc477d040af9b1b080493c40c57d5c10494a26dc"
+      },
+      "split": "development",
+      "title": "WormID-Bench: A Benchmark for Whole-Brain Activity Extraction in C. elegans",
+      "url": "http://dx.doi.org/10.1101/2025.01.06.631621"
+    },
+    {
+      "bibliography": {
+        "bytes": 458,
+        "path": "tests/papers/28dd4b2d-6c3b-1014-8bdd-e7a341fb589f/paper.bib",
+        "sha256": "1464b3367cf90421ff6f33226770e97a3fbd52c0b7c420e29ef3db80c64c07f4"
+      },
+      "dataset": "bioboat",
+      "document_id": "28dd4b2d-6c3b-1014-8bdd-e7a341fb589f",
+      "doi": "10.1101/2025.01.04.631322",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 26690,
+        "path": "tests/papers/28dd4b2d-6c3b-1014-8bdd-e7a341fb589f/paper.md",
+        "sha256": "93fe80ee81104cd7ae60611c03074587de3b228680c41cb307a0cd6892d90609"
+      },
+      "source_records": {
+        "bytes": 72954,
+        "path": "tests/papers/28dd4b2d-6c3b-1014-8bdd-e7a341fb589f/boat.json",
+        "sha256": "4780b96182a5f9cc203ea7f2a63668748e5b040b3799a71a86d8b7277a5c77a6"
+      },
+      "split": "development",
+      "title": "Machine learning segmentation tool trained on synthetic data for tracking cytoskeleton polymerisation and depolymerisation",
+      "url": "http://dx.doi.org/10.1101/2025.01.04.631322"
+    },
+    {
+      "bibliography": {
+        "bytes": 484,
+        "path": "tests/papers/3501f2ad-6cd7-1014-a5a3-9c39eb2fb62f/paper.bib",
+        "sha256": "600182644df53defe3ac1a7b09654f4216aa82583bae886b1d7f2179ebe2c8a8"
+      },
+      "dataset": "bioboat",
+      "document_id": "3501f2ad-6cd7-1014-a5a3-9c39eb2fb62f",
+      "doi": "10.1101/2025.01.07.631807",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 41536,
+        "path": "tests/papers/3501f2ad-6cd7-1014-a5a3-9c39eb2fb62f/paper.md",
+        "sha256": "edd290d0849d1e854126f46952470df78b32199e4e991b8fe46bedfc56ff75e8"
+      },
+      "source_records": {
+        "bytes": 107585,
+        "path": "tests/papers/3501f2ad-6cd7-1014-a5a3-9c39eb2fb62f/boat.json",
+        "sha256": "6681a9d96373a42d0443c6fadf79864bbc1b6fb220a8cdc5296f0a55a6650827"
+      },
+      "split": "development",
+      "title": "Metagenomic estimation of absolute bacterial biomass in the mammalian gut through host-derived read normalization",
+      "url": "http://dx.doi.org/10.1101/2025.01.07.631807"
+    },
+    {
+      "bibliography": {
+        "bytes": 528,
+        "path": "tests/papers/35f1ad93-6bfa-1014-af34-91ac22d4aac1/paper.bib",
+        "sha256": "72994a2719e3fc14b9715522ae9cd01860b9b88c0daa3a156304b00ad897fbf0"
+      },
+      "dataset": "bioboat",
+      "document_id": "35f1ad93-6bfa-1014-af34-91ac22d4aac1",
+      "doi": "10.1101/2025.01.05.631386",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 36889,
+        "path": "tests/papers/35f1ad93-6bfa-1014-af34-91ac22d4aac1/paper.md",
+        "sha256": "e5bcfafbf10ff92ed361a147b8c2a04582b9ae5928cdf5b9b4da27c6d96cc024"
+      },
+      "source_records": {
+        "bytes": 84262,
+        "path": "tests/papers/35f1ad93-6bfa-1014-af34-91ac22d4aac1/boat.json",
+        "sha256": "acbc175cc78087a27ec827fc952036d7867b46e880382255052d546f21fe56ee"
+      },
+      "split": "development",
+      "title": "Regulation of transcription elongation anticipates alternative gene expression strategies across the cell cycle",
+      "url": "http://dx.doi.org/10.1101/2025.01.05.631386"
+    },
+    {
+      "bibliography": {
+        "bytes": 483,
+        "path": "tests/papers/3deceb7c-75bb-1014-8baf-eecdd4eea249/paper.bib",
+        "sha256": "d455e530c2813ebd96405164d15f4dbea4ebd5d1e29c979b0097208f4eb785b7"
+      },
+      "dataset": "bioboat",
+      "document_id": "3deceb7c-75bb-1014-8baf-eecdd4eea249",
+      "doi": "10.1101/2022.02.08.479654",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 83377,
+        "path": "tests/papers/3deceb7c-75bb-1014-8baf-eecdd4eea249/paper.md",
+        "sha256": "c11f9b7f4720c96666ef11cd6e05c8e6ffb1ef6f0cf353365dba09512c7fc1d4"
+      },
+      "source_records": {
+        "bytes": 146363,
+        "path": "tests/papers/3deceb7c-75bb-1014-8baf-eecdd4eea249/boat.json",
+        "sha256": "ef641c8c2a72e7937b03174b04eeb540317b11d81a5b495ec360b651c719dc6d"
+      },
+      "split": "development",
+      "title": "Convolutional networks can model the functional modulation of the MEG responses associated with feed-forward processes during visual word recognition",
+      "url": "http://dx.doi.org/10.1101/2022.02.08.479654"
+    },
+    {
+      "bibliography": {
+        "bytes": 492,
+        "path": "tests/papers/4215ab5b-73be-1014-861c-b233e886010a/paper.bib",
+        "sha256": "4f9486ae47dc6ae4f10785347c3702a8dfd49b54a5052be6caa9f5177fb454ee"
+      },
+      "dataset": "bioboat",
+      "document_id": "4215ab5b-73be-1014-861c-b233e886010a",
+      "doi": "10.1101/2025.01.24.633472",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 17766,
+        "path": "tests/papers/4215ab5b-73be-1014-861c-b233e886010a/paper.md",
+        "sha256": "58caa1e7186f52c7256901c346a16f5c09ebf5da0566a93723e97c9e2cd8e0e3"
+      },
+      "source_records": {
+        "bytes": 42605,
+        "path": "tests/papers/4215ab5b-73be-1014-861c-b233e886010a/boat.json",
+        "sha256": "f1a5f1bc773f27cbb22eb0cde9215fdfdcfbb91b16074795ff0df4ac30daa8e2"
+      },
+      "split": "development",
+      "title": "In vitro antioxidant and anti-inflammatory activities, total phenolic and flavonoid contents of Anadenanthera colubrina from Northern Peru",
+      "url": "http://dx.doi.org/10.1101/2025.01.24.633472"
+    },
+    {
+      "bibliography": {
+        "bytes": 399,
+        "path": "tests/papers/4290e592-6c1e-1014-ac91-e897d17a15b0/paper.bib",
+        "sha256": "600fd221cf426efe004bd4f463ccf0d16664c6e9f1168753d433615a933e2f6c"
+      },
+      "dataset": "bioboat",
+      "document_id": "4290e592-6c1e-1014-ac91-e897d17a15b0",
+      "doi": "10.1101/2024.12.30.630805",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 41472,
+        "path": "tests/papers/4290e592-6c1e-1014-ac91-e897d17a15b0/paper.md",
+        "sha256": "ed8f45656af5dc178c27a54ee949d755e4ad236df8718aa931458e20be2eca07"
+      },
+      "source_records": {
+        "bytes": 76128,
+        "path": "tests/papers/4290e592-6c1e-1014-ac91-e897d17a15b0/boat.json",
+        "sha256": "7d25735b96d7b1667e470c5b45d998e6b671d949c655546f0c48b70f353d5b86"
+      },
+      "split": "development",
+      "title": "Mapping of Shore Area Wetlands in Lake Tana Biosphere Reserve, Ethiopia Using Sentinel-1A SAR and Multi-Source Data",
+      "url": "http://dx.doi.org/10.1101/2024.12.30.630805"
+    },
+    {
+      "bibliography": {
+        "bytes": 645,
+        "path": "tests/papers/42e22ce9-74ef-1014-9e69-ae55be7940c3/paper.bib",
+        "sha256": "65bdb4a1b15b1c9230c6049a92c45ae17e7b840f2750357d9c6adcbe6b0740ce"
+      },
+      "dataset": "bioboat",
+      "document_id": "42e22ce9-74ef-1014-9e69-ae55be7940c3",
+      "doi": "10.1101/2025.01.21.634158",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 56007,
+        "path": "tests/papers/42e22ce9-74ef-1014-9e69-ae55be7940c3/paper.md",
+        "sha256": "0e96cd89a98fb41a76fe83474ad45b213c80aa363faf92855b2ddcf6282c096c"
+      },
+      "source_records": {
+        "bytes": 147439,
+        "path": "tests/papers/42e22ce9-74ef-1014-9e69-ae55be7940c3/boat.json",
+        "sha256": "120e8709ed78046c8f4fc126d1a8c5bdaeef44464df6fcb6eaf796de8ceb4126"
+      },
+      "split": "development",
+      "title": "Transcriptome responses of two Halophila stipulacea seagrass populations from pristine and impacted habitats, to single and combined thermal and excess nutrient stressors, reveal local adaptive features and core stress-response genes",
+      "url": "http://dx.doi.org/10.1101/2025.01.21.634158"
+    },
+    {
+      "bibliography": {
+        "bytes": 864,
+        "path": "tests/papers/4505a70c-6d8e-1014-a85e-b2b21e21cb5a/paper.bib",
+        "sha256": "fa2579e431b30fe63af2df00e1bec88b092cda076e6db6bf718e31c9d0d0d27a"
+      },
+      "dataset": "bioboat",
+      "document_id": "4505a70c-6d8e-1014-a85e-b2b21e21cb5a",
+      "doi": "10.1101/2024.05.15.594343",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 59194,
+        "path": "tests/papers/4505a70c-6d8e-1014-a85e-b2b21e21cb5a/paper.md",
+        "sha256": "267ae2c477a8d8078241f36c0ddc9c05c20a3a6be038fb793f471e6ea28fd374"
+      },
+      "source_records": {
+        "bytes": 78220,
+        "path": "tests/papers/4505a70c-6d8e-1014-a85e-b2b21e21cb5a/boat.json",
+        "sha256": "1a4054a83eb465cfdeef6438358bece8b37827633338f680c85563728932e35b"
+      },
+      "split": "heldout_test",
+      "title": "Adventitial fibroblasts direct smooth muscle cell-state transition in pulmonary vascular disease",
+      "url": "http://dx.doi.org/10.1101/2024.05.15.594343"
+    },
+    {
+      "bibliography": {
+        "bytes": 360,
+        "path": "tests/papers/4508df79-6dd8-1014-a4db-a9ddaabd10b9/paper.bib",
+        "sha256": "dba6a82ba864900270127a44d615e12c156d3cc8ef34fe7a7983f3fcfb2026e6"
+      },
+      "dataset": "bioboat",
+      "document_id": "4508df79-6dd8-1014-a4db-a9ddaabd10b9",
+      "doi": "10.1101/2025.01.15.633249",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 38909,
+        "path": "tests/papers/4508df79-6dd8-1014-a4db-a9ddaabd10b9/paper.md",
+        "sha256": "dff5dd52bd268476fb873d36ccda6cf4a082edeb4c4f7700c1f81d6e1c1590c8"
+      },
+      "source_records": {
+        "bytes": 129657,
+        "path": "tests/papers/4508df79-6dd8-1014-a4db-a9ddaabd10b9/boat.json",
+        "sha256": "52f129cb9f19e50fa16b23403f329fd71e5dfb70ea652493fbd4d9f0455c5816"
+      },
+      "split": "heldout_test",
+      "title": "Cognitive enrichment preserves retrosplenial parvalbumin density and cognitive function in female 5xFAD mice",
+      "url": "http://dx.doi.org/10.1101/2025.01.15.633249"
+    },
+    {
+      "bibliography": {
+        "bytes": 463,
+        "path": "tests/papers/4f2cd701-6f97-1014-afe2-93bbb92fa115/paper.bib",
+        "sha256": "a97a729b37002231253cbc4f825c9ce1e0e4da31b28db18705bd644e04fc04b0"
+      },
+      "dataset": "bioboat",
+      "document_id": "4f2cd701-6f97-1014-afe2-93bbb92fa115",
+      "doi": "10.1101/2024.11.13.623350",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 2390,
+        "path": "tests/papers/4f2cd701-6f97-1014-afe2-93bbb92fa115/paper.md",
+        "sha256": "384ec59a06c75243e8b4d0303203495e32f229c7558d4e131f6ae2bec881c441"
+      },
+      "source_records": {
+        "bytes": 3656,
+        "path": "tests/papers/4f2cd701-6f97-1014-afe2-93bbb92fa115/boat.json",
+        "sha256": "8309c791fb04efac6741f47bdb0323724bcde6d8f17eefd25f28163d003b337a"
+      },
+      "split": "development",
+      "title": "GPU-accelerated homology search with MMseqs2",
+      "url": "http://dx.doi.org/10.1101/2024.11.13.623350"
+    },
+    {
+      "bibliography": {
+        "bytes": 376,
+        "path": "tests/papers/56ba88d7-6e7b-1014-aa73-ac0f9899900c/paper.bib",
+        "sha256": "fcddb41db0652deb6bfae0196defc789240124377acbd8e20e70683e6824f8c2"
+      },
+      "dataset": "bioboat",
+      "document_id": "56ba88d7-6e7b-1014-aa73-ac0f9899900c",
+      "doi": "10.1101/2025.01.17.632799",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 39050,
+        "path": "tests/papers/56ba88d7-6e7b-1014-aa73-ac0f9899900c/paper.md",
+        "sha256": "63d55b8f5ef3bf935039a16afffaf26d6c7c69d1005b3950683c7b4ddc181386"
+      },
+      "source_records": {
+        "bytes": 95652,
+        "path": "tests/papers/56ba88d7-6e7b-1014-aa73-ac0f9899900c/boat.json",
+        "sha256": "ffdd96ea55a62aac57e6dfc0c369a9104a0ba1dc4bd5be82f16d544f27b6c975"
+      },
+      "split": "heldout_test",
+      "title": "Evolutionary trajectories of immune escape across cancers",
+      "url": "http://dx.doi.org/10.1101/2025.01.17.632799"
+    },
+    {
+      "bibliography": {
+        "bytes": 467,
+        "path": "tests/papers/5d15b559-73de-1014-8808-e84be1dbdc8c/paper.bib",
+        "sha256": "16f9724ee200bc49462ce619f31956ce43dfd69c9dd9f92dae8834a5ad09e2e9"
+      },
+      "dataset": "bioboat",
+      "document_id": "5d15b559-73de-1014-8808-e84be1dbdc8c",
+      "doi": "10.1101/2025.01.08.632005",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 50681,
+        "path": "tests/papers/5d15b559-73de-1014-8808-e84be1dbdc8c/paper.md",
+        "sha256": "1e06e1c72b303d21d020b7e2cd755d0a99c6c0cccedebfbdde3dd4decf2f017d"
+      },
+      "source_records": {
+        "bytes": 88889,
+        "path": "tests/papers/5d15b559-73de-1014-8808-e84be1dbdc8c/boat.json",
+        "sha256": "5706b24918e1b72159d0a585b833678af4f39b767764945db1b9aabde54abb73"
+      },
+      "split": "development",
+      "title": "Optimization of Extraction Process by Response Surface Method-ology of Total Flavonoids from Ziziphus Jujube Flesh and its Sedative-Hypnotic Effects",
+      "url": "http://dx.doi.org/10.1101/2025.01.08.632005"
+    },
+    {
+      "bibliography": {
+        "bytes": 373,
+        "path": "tests/papers/5e0ad58d-7485-1014-83e3-aad10b559183/paper.bib",
+        "sha256": "1650d5e87939f113b29ac94df1b1dd5d2cc697c741bf5c46ad8dd511d8a6f7aa"
+      },
+      "dataset": "bioboat",
+      "document_id": "5e0ad58d-7485-1014-83e3-aad10b559183",
+      "doi": "10.1101/2025.01.25.634882",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 84663,
+        "path": "tests/papers/5e0ad58d-7485-1014-83e3-aad10b559183/paper.md",
+        "sha256": "c37c4f4edddfb7288a2ad940575c4c847091fe4cf763ffd0e9eb73bae3f1d4c0"
+      },
+      "source_records": {
+        "bytes": 144846,
+        "path": "tests/papers/5e0ad58d-7485-1014-83e3-aad10b559183/boat.json",
+        "sha256": "c16ff86434f36c27c0eafe11f9464ea0ccf5aefe7c25db5a9103d97c6c6f02ca"
+      },
+      "split": "development",
+      "title": "Contributions of distinct attention mechanisms to saccadic choices in a gamified, dynamic environment",
+      "url": "http://dx.doi.org/10.1101/2025.01.25.634882"
+    },
+    {
+      "bibliography": {
+        "bytes": 324,
+        "path": "tests/papers/66a0396d-758d-1014-9317-d590332908df/paper.bib",
+        "sha256": "96c88204ad88c276d9701e0244b0f63be8dd04d33fbfc0b686517384ab6254d8"
+      },
+      "dataset": "bioboat",
+      "document_id": "66a0396d-758d-1014-9317-d590332908df",
+      "doi": "10.1101/2025.01.27.634991",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 19471,
+        "path": "tests/papers/66a0396d-758d-1014-9317-d590332908df/paper.md",
+        "sha256": "517f49d6a4f2955bdc9ec33a4bd0ac109cac00d9d11354c11bc3533c6a8de82f"
+      },
+      "source_records": {
+        "bytes": 38123,
+        "path": "tests/papers/66a0396d-758d-1014-9317-d590332908df/boat.json",
+        "sha256": "7691ea0eba8147a321a523ba3d860fd53d2b16cbc4eabc35886561069fb732b1"
+      },
+      "split": "development",
+      "title": "Fitting multiple bacterial growth data using continued fraction of straight lines",
+      "url": "http://dx.doi.org/10.1101/2025.01.27.634991"
+    },
+    {
+      "bibliography": {
+        "bytes": 664,
+        "path": "tests/papers/68c39b8d-74cf-1014-8b66-aad62036cf53/paper.bib",
+        "sha256": "37ae7870835114268400037cfdc334878c5cddb271327c4870cbf7781e14dc2a"
+      },
+      "dataset": "bioboat",
+      "document_id": "68c39b8d-74cf-1014-8b66-aad62036cf53",
+      "doi": "10.1101/2025.01.11.632536",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 73636,
+        "path": "tests/papers/68c39b8d-74cf-1014-8b66-aad62036cf53/paper.md",
+        "sha256": "64c66728e6de1e90a78d83133cd228b3f0668d180379403ab737c93f1f881f9f"
+      },
+      "source_records": {
+        "bytes": 125882,
+        "path": "tests/papers/68c39b8d-74cf-1014-8b66-aad62036cf53/boat.json",
+        "sha256": "b782ff4d21a7490957e0cffa771c0c860c31ef93047416e3aa221572be023610"
+      },
+      "split": "development",
+      "title": "Tke5 is a novel Pseudomonas putida toxin that depolarises membranes killing plant pathogens",
+      "url": "http://dx.doi.org/10.1101/2025.01.11.632536"
+    },
+    {
+      "bibliography": {
+        "bytes": 320,
+        "path": "tests/papers/6a2eda71-7807-1014-9096-8fc313a04d0b/paper.bib",
+        "sha256": "5942f63cf77d1c38847c35e446978a6d5fdeb7eb9fd3f49ce02179276499fe0e"
+      },
+      "dataset": "bioboat",
+      "document_id": "6a2eda71-7807-1014-9096-8fc313a04d0b",
+      "doi": "10.1101/2025.01.13.632686",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 27025,
+        "path": "tests/papers/6a2eda71-7807-1014-9096-8fc313a04d0b/paper.md",
+        "sha256": "6729287d014941de0801ef1ebf3e5009edd54981f422eaa28a25e6a3df9b2828"
+      },
+      "source_records": {
+        "bytes": 78490,
+        "path": "tests/papers/6a2eda71-7807-1014-9096-8fc313a04d0b/boat.json",
+        "sha256": "3bde560b1770c3f3f9a0b04782324563946331bc63bfa58450626c7c7166965e"
+      },
+      "split": "development",
+      "title": "Where were the Caribbean mangroves during the Last Glacial Maximum? A microtopographical approach",
+      "url": "http://dx.doi.org/10.1101/2025.01.13.632686"
+    },
+    {
+      "bibliography": {
+        "bytes": 388,
+        "path": "tests/papers/73672f84-6c32-1014-b7f4-9a4f6e6e77cf/paper.bib",
+        "sha256": "474d10a4d72f74dd3daaacc2d72d1053e52a0128827e44d192fa368d203a93ce"
+      },
+      "dataset": "bioboat",
+      "document_id": "73672f84-6c32-1014-b7f4-9a4f6e6e77cf",
+      "doi": "10.1101/2023.12.27.573307",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 32149,
+        "path": "tests/papers/73672f84-6c32-1014-b7f4-9a4f6e6e77cf/paper.md",
+        "sha256": "05790d5584412d1c6c4f013add63e9f9feb635b8885b914ead8551f48df4de19"
+      },
+      "source_records": {
+        "bytes": 87317,
+        "path": "tests/papers/73672f84-6c32-1014-b7f4-9a4f6e6e77cf/boat.json",
+        "sha256": "d71e8f734911a83039558724f93f89583c954d804ec2283bc9ddec51103cd012"
+      },
+      "split": "development",
+      "title": "Emergence of tipping points and transient dynamics in finite observations",
+      "url": "http://dx.doi.org/10.1101/2023.12.27.573307"
+    },
+    {
+      "bibliography": {
+        "bytes": 665,
+        "path": "tests/papers/91cfb330-73c4-1014-9d2c-d2a690bd20d2/paper.bib",
+        "sha256": "b71766c3276749688a66843cb4c391c94a13ac2352b6e6d8e4a5b18b3db1e1f8"
+      },
+      "dataset": "bioboat",
+      "document_id": "91cfb330-73c4-1014-9d2c-d2a690bd20d2",
+      "doi": "10.1101/2024.12.18.629278",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 2328,
+        "path": "tests/papers/91cfb330-73c4-1014-9d2c-d2a690bd20d2/paper.md",
+        "sha256": "3def338c25418e30dad7bbecdd1b68d534675d7b0027d440233bee8ddbe86460"
+      },
+      "source_records": {
+        "bytes": 1528,
+        "path": "tests/papers/91cfb330-73c4-1014-9d2c-d2a690bd20d2/boat.json",
+        "sha256": "608865e63cf0398ab324235fe4efd8e1fca7f8799f3f4b03151e386e38246f79"
+      },
+      "split": "development",
+      "title": "Contribution of front-line, standard of care drugs to bactericidal responses, resistance emergence, and cure in murine models of easy- or hard-to-treat tuberculosis disease",
+      "url": "http://dx.doi.org/10.1101/2024.12.18.629278"
+    },
+    {
+      "bibliography": {
+        "bytes": 364,
+        "path": "tests/papers/9b0b5fca-6e7b-1014-b03c-b0f1f001264a/paper.bib",
+        "sha256": "f4e847f2bc75908f611a33a139f708cfb77710c021f14deb7325d215a24cb8a1"
+      },
+      "dataset": "bioboat",
+      "document_id": "9b0b5fca-6e7b-1014-b03c-b0f1f001264a",
+      "doi": "10.1101/2025.01.15.633237",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 35328,
+        "path": "tests/papers/9b0b5fca-6e7b-1014-b03c-b0f1f001264a/paper.md",
+        "sha256": "fa34ed00f002126a5ac6d3e583ad4d6c8fb9f96be013a4a372437350a9a2c109"
+      },
+      "source_records": {
+        "bytes": 97411,
+        "path": "tests/papers/9b0b5fca-6e7b-1014-b03c-b0f1f001264a/boat.json",
+        "sha256": "c3f909f30e1b913b1e89fb63fbe7e821d8206e5af9158d31387db7071f1b9bf1"
+      },
+      "split": "development",
+      "title": "Comparison of TENS electrodes and textile electrodes for electrocutaneous warning",
+      "url": "http://dx.doi.org/10.1101/2025.01.15.633237"
+    },
+    {
+      "bibliography": {
+        "bytes": 595,
+        "path": "tests/papers/9b3bd7fa-74ee-1014-b104-9d1011902c8d/paper.bib",
+        "sha256": "6bcf638a9fe8cb77c1355a25938904eb9bdf2a5a73cde8a85fffa30e331528af"
+      },
+      "dataset": "bioboat",
+      "document_id": "9b3bd7fa-74ee-1014-b104-9d1011902c8d",
+      "doi": "10.1101/2023.12.06.570356",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 65149,
+        "path": "tests/papers/9b3bd7fa-74ee-1014-b104-9d1011902c8d/paper.md",
+        "sha256": "0cbdfa58d4ff963ee4705054c150a11338573641ce869c402ed6931c931ab782"
+      },
+      "source_records": {
+        "bytes": 167855,
+        "path": "tests/papers/9b3bd7fa-74ee-1014-b104-9d1011902c8d/boat.json",
+        "sha256": "7a766288b2ebff33f94bcd2a20279bf1744d227710166627730a17c73856ace4"
+      },
+      "split": "development",
+      "title": "Unlocking the Full Potential of Nanopore Sequencing: Tips, Tricks, and Advanced Data Analysis Techniques",
+      "url": "http://dx.doi.org/10.1101/2023.12.06.570356"
+    },
+    {
+      "bibliography": {
+        "bytes": 587,
+        "path": "tests/papers/a4669df0-6c1d-1014-9a75-9e16e54a82f5/paper.bib",
+        "sha256": "a4b624fdec3d2f70957cb1b2607720dd26fe7b1dc0fd847866ef9175bfe42a66"
+      },
+      "dataset": "bioboat",
+      "document_id": "a4669df0-6c1d-1014-9a75-9e16e54a82f5",
+      "doi": "10.1101/2023.10.26.564275",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 81013,
+        "path": "tests/papers/a4669df0-6c1d-1014-9a75-9e16e54a82f5/paper.md",
+        "sha256": "ca6df67d0451591748d6a3fb08065d82631176b8b8241bc0af1cdc45d4a00499"
+      },
+      "source_records": {
+        "bytes": 125874,
+        "path": "tests/papers/a4669df0-6c1d-1014-9a75-9e16e54a82f5/boat.json",
+        "sha256": "aba86eadb64b757cba1082ce20833abfa1b607c2c6b4f3d3e9ddbcc2cd7de4dd"
+      },
+      "split": "development",
+      "title": "Chromokinesin Klp-19 regulates microtubule overlap and dynamics during anaphase in C. elegans",
+      "url": "http://dx.doi.org/10.1101/2023.10.26.564275"
+    },
+    {
+      "bibliography": {
+        "bytes": 374,
+        "path": "tests/papers/a8c93f6f-73fb-1014-b8ba-bf1a0b8291a9/paper.bib",
+        "sha256": "b6a35cd4905790284e93f587f215b08146360cfd7e38333a99815d5b279d7d2e"
+      },
+      "dataset": "bioboat",
+      "document_id": "a8c93f6f-73fb-1014-b8ba-bf1a0b8291a9",
+      "doi": "10.1101/2025.01.22.634320",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 63352,
+        "path": "tests/papers/a8c93f6f-73fb-1014-b8ba-bf1a0b8291a9/paper.md",
+        "sha256": "a80c3e57532a9e72b2b0eee3a18d51ba07201294113d0f063f07d8b0325005ac"
+      },
+      "source_records": {
+        "bytes": 87407,
+        "path": "tests/papers/a8c93f6f-73fb-1014-b8ba-bf1a0b8291a9/boat.json",
+        "sha256": "81193e245c604c04077efc42bdfea1dcc4cb38fef7018e139fc8b2d643620980"
+      },
+      "split": "development",
+      "title": "Simulation and quantitative analysis of spatial centromere distribution patterns",
+      "url": "http://dx.doi.org/10.1101/2025.01.22.634320"
+    },
+    {
+      "bibliography": {
+        "bytes": 373,
+        "path": "tests/papers/ba5a5c2f-7653-1014-9cea-f092cacb0178/paper.bib",
+        "sha256": "3d0bbfc41162e2fcb11016cb7eac85488a0211fab5d1ec88a713dc4babacc177"
+      },
+      "dataset": "bioboat",
+      "document_id": "ba5a5c2f-7653-1014-9cea-f092cacb0178",
+      "doi": "10.1101/2025.01.29.635264",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 21449,
+        "path": "tests/papers/ba5a5c2f-7653-1014-9cea-f092cacb0178/paper.md",
+        "sha256": "4adc52c4b88ea23ede78b1e7a9c1b31fa447bcb0fb34cd344c756f98e635e8a1"
+      },
+      "source_records": {
+        "bytes": 68884,
+        "path": "tests/papers/ba5a5c2f-7653-1014-9cea-f092cacb0178/boat.json",
+        "sha256": "7b0c5749cb4ca5bc93b453af3ddee8b368c8023dde91a8ad0bfa8ca876ff117d"
+      },
+      "split": "heldout_test",
+      "title": "Network theory predicts ecosystem robustness across environmental conditions",
+      "url": "http://dx.doi.org/10.1101/2025.01.29.635264"
+    },
+    {
+      "bibliography": {
+        "bytes": 345,
+        "path": "tests/papers/bfeb1e3c-7484-1014-95e0-eb3f642f3093/paper.bib",
+        "sha256": "1d87f0d1665f6ef8caf963100f0bfbda43e8d668ff54d8e91db96200444f6cd8"
+      },
+      "dataset": "bioboat",
+      "document_id": "bfeb1e3c-7484-1014-95e0-eb3f642f3093",
+      "doi": "10.1101/2024.10.08.617207",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 33700,
+        "path": "tests/papers/bfeb1e3c-7484-1014-95e0-eb3f642f3093/paper.md",
+        "sha256": "24a7174a277090a0df95680f4637d3dd5a5b32de37f9b8951eb7aeef2380b185"
+      },
+      "source_records": {
+        "bytes": 93718,
+        "path": "tests/papers/bfeb1e3c-7484-1014-95e0-eb3f642f3093/boat.json",
+        "sha256": "18c3d1c4015845872bdf87b6aa6200cee0a935d66f6a6fc0f33a5aac0d53652e"
+      },
+      "split": "heldout_test",
+      "title": "Synonymous mutations in AAV Rep enhance genome packaging in a library selection",
+      "url": "http://dx.doi.org/10.1101/2024.10.08.617207"
+    },
+    {
+      "bibliography": {
+        "bytes": 621,
+        "path": "tests/papers/c1c5b5ea-75bb-1014-aafd-d6af5fa62130/paper.bib",
+        "sha256": "9eb1be14e50e994d3d30daf18ce09f962be668ed8210d0dcb4ce2ab0df895f02"
+      },
+      "dataset": "bioboat",
+      "document_id": "c1c5b5ea-75bb-1014-aafd-d6af5fa62130",
+      "doi": "10.1101/2025.01.27.634989",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 40806,
+        "path": "tests/papers/c1c5b5ea-75bb-1014-aafd-d6af5fa62130/paper.md",
+        "sha256": "cb4280ef18a797569cf15a11d6cd42f36d8d959ef0d9e9ccbb3eee4d78a1f38d"
+      },
+      "source_records": {
+        "bytes": 59988,
+        "path": "tests/papers/c1c5b5ea-75bb-1014-aafd-d6af5fa62130/boat.json",
+        "sha256": "d02119bdeeab0317ba05f235708f778a614040f164c3a6851c836c67ea0d35f8"
+      },
+      "split": "development",
+      "title": "Ex vivo modelling of lung tissue resident antimicrobial responses",
+      "url": "http://dx.doi.org/10.1101/2025.01.27.634989"
+    },
+    {
+      "bibliography": {
+        "bytes": 693,
+        "path": "tests/papers/c2be0aa5-6d8e-1014-ade9-f40d1bf6eb03/paper.bib",
+        "sha256": "5efd9edb35124082ac8e705569085b7684e42bdb70d881964bb1119203f6026c"
+      },
+      "dataset": "bioboat",
+      "document_id": "c2be0aa5-6d8e-1014-ade9-f40d1bf6eb03",
+      "doi": "10.1101/2025.01.15.633162",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 81139,
+        "path": "tests/papers/c2be0aa5-6d8e-1014-ade9-f40d1bf6eb03/paper.md",
+        "sha256": "39412e0da98f4c6ce122ed17f9ba8824d30b1dbacbfaaed349fd5c70c20f7119"
+      },
+      "source_records": {
+        "bytes": 125720,
+        "path": "tests/papers/c2be0aa5-6d8e-1014-ade9-f40d1bf6eb03/boat.json",
+        "sha256": "7d6fc422445bb170b6ff752584dfddd925884efcf141b46fda81a6fb3721f403"
+      },
+      "split": "development",
+      "title": "Cardiac fibrosis inhibitor CTPR390 prevents structural and morphological changes in collagen and fibroblasts of engineered human connective tissue",
+      "url": "http://dx.doi.org/10.1101/2025.01.15.633162"
+    },
+    {
+      "bibliography": {
+        "bytes": 374,
+        "path": "tests/papers/c5df9d62-74f0-1014-ae74-f5ac9f6a2f18/paper.bib",
+        "sha256": "98c324fe18222e40075456916e42d7e2dfb1ffd6567fe9b1b00cc2aa7c720dc3"
+      },
+      "dataset": "bioboat",
+      "document_id": "c5df9d62-74f0-1014-ae74-f5ac9f6a2f18",
+      "doi": "10.1101/2025.01.26.634942",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 53189,
+        "path": "tests/papers/c5df9d62-74f0-1014-ae74-f5ac9f6a2f18/paper.md",
+        "sha256": "4347b352103f351a7f5b3caaa7499eed357cc7edfc9ec9b87c5c3f4b19d17c1d"
+      },
+      "source_records": {
+        "bytes": 68991,
+        "path": "tests/papers/c5df9d62-74f0-1014-ae74-f5ac9f6a2f18/boat.json",
+        "sha256": "56079e574efe969466478ea0db49fa2487c8e03594bd8a21854af671eab6f877"
+      },
+      "split": "heldout_test",
+      "title": "A cheater founds the winning lineages during evolution of a novel metabolic pathway",
+      "url": "http://dx.doi.org/10.1101/2025.01.26.634942"
+    },
+    {
+      "bibliography": {
+        "bytes": 352,
+        "path": "tests/papers/c61d6a65-70ef-1014-9b54-c72875be7368/paper.bib",
+        "sha256": "07d7fe5757cc3fcadcc20cc9235945cf5d3c46d92151eda71e938db24f3a7904"
+      },
+      "dataset": "bioboat",
+      "document_id": "c61d6a65-70ef-1014-9b54-c72875be7368",
+      "doi": "10.1101/2025.01.21.634044",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 50382,
+        "path": "tests/papers/c61d6a65-70ef-1014-9b54-c72875be7368/paper.md",
+        "sha256": "cb3d5fadd0d63fb614f678f3533c73745e2357b81852e3828c5469154857fd34"
+      },
+      "source_records": {
+        "bytes": 137239,
+        "path": "tests/papers/c61d6a65-70ef-1014-9b54-c72875be7368/boat.json",
+        "sha256": "58b17c342489c01c84de2dc4bfb132c09e1f83d668859978429d03af18d2f3f7"
+      },
+      "split": "development",
+      "title": "Characterising ongoing brain aging and baseline effects from cross-sectional data",
+      "url": "http://dx.doi.org/10.1101/2025.01.21.634044"
+    },
+    {
+      "bibliography": {
+        "bytes": 406,
+        "path": "tests/papers/cb3017c8-77bc-1014-9584-cd9a3e344cff/paper.bib",
+        "sha256": "48cc57fbc76a24b28a95fc1caca307b9188e93fb6c37423b1c81ab1e8292b8d4"
+      },
+      "dataset": "bioboat",
+      "document_id": "cb3017c8-77bc-1014-9584-cd9a3e344cff",
+      "doi": "10.1101/2025.01.13.632509",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 1253,
+        "path": "tests/papers/cb3017c8-77bc-1014-9584-cd9a3e344cff/paper.md",
+        "sha256": "46122951779331cd541a188f4b3a5f12729abea92a539a01927b0a335be5ed83"
+      },
+      "source_records": {
+        "bytes": 3312,
+        "path": "tests/papers/cb3017c8-77bc-1014-9584-cd9a3e344cff/boat.json",
+        "sha256": "6d6744ed523483e947b2475e22d9475286f2ebde8a24ebd25c538460ff86fb2e"
+      },
+      "split": "development",
+      "title": "The first complete mitogenome of the endangered spotted eagle ray, Aetobatus ocellatus , reinforces its classification within the family Aetobatidae",
+      "url": "http://dx.doi.org/10.1101/2025.01.13.632509"
+    },
+    {
+      "bibliography": {
+        "bytes": 791,
+        "path": "tests/papers/cb49e229-6c21-1014-8f6c-d27c95767999/paper.bib",
+        "sha256": "416fbc33bcbb8037261f0835b11e5ddc9fd76c0db82f1f9bc5bbc63088ed4a8f"
+      },
+      "dataset": "bioboat",
+      "document_id": "cb49e229-6c21-1014-8f6c-d27c95767999",
+      "doi": "10.1101/2024.04.17.589996",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 54178,
+        "path": "tests/papers/cb49e229-6c21-1014-8f6c-d27c95767999/paper.md",
+        "sha256": "b1fad9140e53165800ab616b1ea50d43985b040012ea5083d36ddff2c2208610"
+      },
+      "source_records": {
+        "bytes": 155553,
+        "path": "tests/papers/cb49e229-6c21-1014-8f6c-d27c95767999/boat.json",
+        "sha256": "0eb6d6493c8e838e95d1786cda457a75f3b4717d0bd0d50bac4fcdd802f63588"
+      },
+      "split": "development",
+      "title": "The splicing factor kinase SRPK1 is a therapeutic target for Peripheral Vascular Disease",
+      "url": "http://dx.doi.org/10.1101/2024.04.17.589996"
+    },
+    {
+      "bibliography": {
+        "bytes": 507,
+        "path": "tests/papers/cc84fafd-6f50-1014-8e86-84dc10889656/paper.bib",
+        "sha256": "638608c6f961b6abc68e8a84dbdaffa023cf90c828b05366a534de3f0994a14e"
+      },
+      "dataset": "bioboat",
+      "document_id": "cc84fafd-6f50-1014-8e86-84dc10889656",
+      "doi": "10.1101/2025.01.17.633612",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 35578,
+        "path": "tests/papers/cc84fafd-6f50-1014-8e86-84dc10889656/paper.md",
+        "sha256": "6d297c78e259fd965ae1b940cc9bc3680613f0bc8790ee816c6b110276a76e7e"
+      },
+      "source_records": {
+        "bytes": 78245,
+        "path": "tests/papers/cc84fafd-6f50-1014-8e86-84dc10889656/boat.json",
+        "sha256": "be63d542cb851b21598eb92155b9737aff67543b749130f049a83d3623a10a7e"
+      },
+      "split": "heldout_test",
+      "title": "SARS-CoV-2 neutralizing antibody specificities differ dramatically between recently infected infants and immune-imprinted individuals",
+      "url": "http://dx.doi.org/10.1101/2025.01.17.633612"
+    },
+    {
+      "bibliography": {
+        "bytes": 552,
+        "path": "tests/papers/cdec014b-758d-1014-abf5-e64a27efe0a7/paper.bib",
+        "sha256": "8a8783fec06e66eb5102595ae680959537a087e5763df7fc170c73b9eaabf5ed"
+      },
+      "dataset": "bioboat",
+      "document_id": "cdec014b-758d-1014-abf5-e64a27efe0a7",
+      "doi": "10.1101/2025.01.28.635215",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 69552,
+        "path": "tests/papers/cdec014b-758d-1014-abf5-e64a27efe0a7/paper.md",
+        "sha256": "3cf59b7b2239b024c091170edbd09b8cb3c68b3cf9f9b66ca75c9c5af8739e9a"
+      },
+      "source_records": {
+        "bytes": 162641,
+        "path": "tests/papers/cdec014b-758d-1014-abf5-e64a27efe0a7/boat.json",
+        "sha256": "05221d7aecdca34a071654354a3688aff910116dcdc7e244140fd98332b10100"
+      },
+      "split": "development",
+      "title": "Evolutionary potential of the Escherichia coli antimutator \u0394 nudJ is reduced via altered mutational spectrum",
+      "url": "http://dx.doi.org/10.1101/2025.01.28.635215"
+    },
+    {
+      "bibliography": {
+        "bytes": 393,
+        "path": "tests/papers/d1b1589d-7607-1014-85dd-f97a42091be0/paper.bib",
+        "sha256": "8bd6d0bcff0ce86bbcaff72d57bb84dc91862bb89c42f0bae8346edbb08cb31f"
+      },
+      "dataset": "bioboat",
+      "document_id": "d1b1589d-7607-1014-85dd-f97a42091be0",
+      "doi": "10.1101/2025.01.28.635221",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 26358,
+        "path": "tests/papers/d1b1589d-7607-1014-85dd-f97a42091be0/paper.md",
+        "sha256": "e34ec2d9e55908f8f7e4b29f4be441024bb9e8ce2aebcc10e01e062cd720fce5"
+      },
+      "source_records": {
+        "bytes": 75996,
+        "path": "tests/papers/d1b1589d-7607-1014-85dd-f97a42091be0/boat.json",
+        "sha256": "aca4d477828de3ff9dc6dfa3eb32235b85205525f174a7820dfeabc859d53f7b"
+      },
+      "split": "heldout_test",
+      "title": "Structural insights into Salinosporamide A mediated inhibition of the human 20S proteasome",
+      "url": "http://dx.doi.org/10.1101/2025.01.28.635221"
+    },
+    {
+      "bibliography": {
+        "bytes": 444,
+        "path": "tests/papers/d3eda0c1-753f-1014-a2eb-ef1b70cbad45/paper.bib",
+        "sha256": "57f69c1636747128ce0ef1bca4414690c6c42a93bdde4a1c422c9f2504670e91"
+      },
+      "dataset": "bioboat",
+      "document_id": "d3eda0c1-753f-1014-a2eb-ef1b70cbad45",
+      "doi": "10.1101/2025.01.24.634724",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 32889,
+        "path": "tests/papers/d3eda0c1-753f-1014-a2eb-ef1b70cbad45/paper.md",
+        "sha256": "c22537c53317def409c4aae8d1724d7a5c06c804c1941767156ebfe8706aa802"
+      },
+      "source_records": {
+        "bytes": 98638,
+        "path": "tests/papers/d3eda0c1-753f-1014-a2eb-ef1b70cbad45/boat.json",
+        "sha256": "95eb53a62c881d0fbf364063542abee5206cccebc2ed861a12a2850bb8313b7b"
+      },
+      "split": "development",
+      "title": "Receptor Activity-Modifying Protein 3 enhances GLP-1-mediated Insulin Secretion",
+      "url": "http://dx.doi.org/10.1101/2025.01.24.634724"
+    },
+    {
+      "bibliography": {
+        "bytes": 555,
+        "path": "tests/papers/d5068a46-764b-1014-a853-97af152140f0/paper.bib",
+        "sha256": "6d1dff1489c2d0b51b8339d81cdafbff5c75caea8525a9fa25c83817a8264460"
+      },
+      "dataset": "bioboat",
+      "document_id": "d5068a46-764b-1014-a853-97af152140f0",
+      "doi": "10.1101/2025.01.13.632693",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 50226,
+        "path": "tests/papers/d5068a46-764b-1014-a853-97af152140f0/paper.md",
+        "sha256": "e0aa81345f916a174b808caa6857da5557fd5344c701587139d3c06b16bc0936"
+      },
+      "source_records": {
+        "bytes": 107596,
+        "path": "tests/papers/d5068a46-764b-1014-a853-97af152140f0/boat.json",
+        "sha256": "27b5310596cbc7666e36c7a565bca064699317c27e7603a13541084b725f9427"
+      },
+      "split": "development",
+      "title": "VZV gE Promotes STING Degradation via Midnolin-Proteasome Pathway to Inhibit cGAS-STING Signaling",
+      "url": "http://dx.doi.org/10.1101/2025.01.13.632693"
+    },
+    {
+      "bibliography": {
+        "bytes": 502,
+        "path": "tests/papers/d53f78a4-7329-1014-bf89-86cf8bdc4ea4/paper.bib",
+        "sha256": "253d6d8d6113772e3ab6766f68d8cf02e7b4b9a0bb2325256ddab97b721eac6a"
+      },
+      "dataset": "bioboat",
+      "document_id": "d53f78a4-7329-1014-bf89-86cf8bdc4ea4",
+      "doi": "10.1101/2025.01.07.631760",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 58332,
+        "path": "tests/papers/d53f78a4-7329-1014-bf89-86cf8bdc4ea4/paper.md",
+        "sha256": "3ceea02dd64275e9642081fa2f62d937a081f332994c2c696beee68781081478"
+      },
+      "source_records": {
+        "bytes": 132702,
+        "path": "tests/papers/d53f78a4-7329-1014-bf89-86cf8bdc4ea4/boat.json",
+        "sha256": "18d041867cfc0137bca0c466f33f05172aa31d49fae9b24e8a3cac3de8240e46"
+      },
+      "split": "development",
+      "title": "Physiologically-relevant light exposure and light behaviour in Switzerland and Malaysia",
+      "url": "http://dx.doi.org/10.1101/2025.01.07.631760"
+    },
+    {
+      "bibliography": {
+        "bytes": 617,
+        "path": "tests/papers/dbf52b5e-6f25-1014-a259-f0d4fcfeb876/paper.bib",
+        "sha256": "fbbb7545eaf6e97fa065e50bc12fb7e83e98b3e2f5e01af7e3d6f993065d01a4"
+      },
+      "dataset": "bioboat",
+      "document_id": "dbf52b5e-6f25-1014-a259-f0d4fcfeb876",
+      "doi": "10.1101/2024.03.28.587096",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 52246,
+        "path": "tests/papers/dbf52b5e-6f25-1014-a259-f0d4fcfeb876/paper.md",
+        "sha256": "c7807ffd5944d24f6ac6bf358211fe6c4064cb65b339a4788c8cf60070de2bb3"
+      },
+      "source_records": {
+        "bytes": 72418,
+        "path": "tests/papers/dbf52b5e-6f25-1014-a259-f0d4fcfeb876/boat.json",
+        "sha256": "a2d51fecf4d3f917921a0ee8e87c340d507611c9cd6ef119d24a838e4ea828d3"
+      },
+      "split": "development",
+      "title": "The metabolic cofactor Coenzyme A enhances alternative macrophage activation via MyD88-linked signaling",
+      "url": "http://dx.doi.org/10.1101/2024.03.28.587096"
+    },
+    {
+      "bibliography": {
+        "bytes": 418,
+        "path": "tests/papers/e4e8c75e-6dba-1014-aefa-c0202fd56e77/paper.bib",
+        "sha256": "d11f2521a5ad1b236d763fe7d2d8f7560c7a5ab593c5ac0534b6a4299af06858"
+      },
+      "dataset": "bioboat",
+      "document_id": "e4e8c75e-6dba-1014-aefa-c0202fd56e77",
+      "doi": "10.1101/2025.01.15.633240",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 12166,
+        "path": "tests/papers/e4e8c75e-6dba-1014-aefa-c0202fd56e77/paper.md",
+        "sha256": "86f6a7ebf9c489f8d7afec373109792017937a59d96ce73d3190fb6be49c5000"
+      },
+      "source_records": {
+        "bytes": 31826,
+        "path": "tests/papers/e4e8c75e-6dba-1014-aefa-c0202fd56e77/boat.json",
+        "sha256": "cd5137a718f89aef66054cb85ec1d5e16a039fe032869d171ac3a73aa20e6540"
+      },
+      "split": "development",
+      "title": "GenVarLoader: An accelerated dataloader for applying deep learning to personalized genomics",
+      "url": "http://dx.doi.org/10.1101/2025.01.15.633240"
+    },
+    {
+      "bibliography": {
+        "bytes": 517,
+        "path": "tests/papers/e6cb1aa8-6f25-1014-b08e-bd678952b187/paper.bib",
+        "sha256": "0f968a960051105fd07027336bf5d5dcd60813ed1495aa8e5aad5fb32e589b69"
+      },
+      "dataset": "bioboat",
+      "document_id": "e6cb1aa8-6f25-1014-b08e-bd678952b187",
+      "doi": "10.1101/2024.06.05.597577",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 65048,
+        "path": "tests/papers/e6cb1aa8-6f25-1014-b08e-bd678952b187/paper.md",
+        "sha256": "7b814d67339cb383d9ccbba69fd3716de84162df29a5e586aa704e7f0766e282"
+      },
+      "source_records": {
+        "bytes": 88823,
+        "path": "tests/papers/e6cb1aa8-6f25-1014-b08e-bd678952b187/boat.json",
+        "sha256": "fdcb3791e86c11507929a709c20f18aec5ebc8df480f4124c2d3dfb2611e148d"
+      },
+      "split": "heldout_test",
+      "title": "Deciphering the Preeclampsia-Specific Immune Microenvironment: The Role of Pro-inflammatory Macrophages",
+      "url": "http://dx.doi.org/10.1101/2024.06.05.597577"
+    },
+    {
+      "bibliography": {
+        "bytes": 417,
+        "path": "tests/papers/ea618fe3-7011-1014-b442-9ba1eeb8f3be/paper.bib",
+        "sha256": "ba69b4355e0dc51725057668af2739f6e204c2230b0f61e2637e2cb173742ab6"
+      },
+      "dataset": "bioboat",
+      "document_id": "ea618fe3-7011-1014-b442-9ba1eeb8f3be",
+      "doi": "10.1101/2024.07.13.603360",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 31622,
+        "path": "tests/papers/ea618fe3-7011-1014-b442-9ba1eeb8f3be/paper.md",
+        "sha256": "57d24864ade8f1989b6fb097c73ad43cb595906f4ab60c0b6b7ff120e516bf7f"
+      },
+      "source_records": {
+        "bytes": 63066,
+        "path": "tests/papers/ea618fe3-7011-1014-b442-9ba1eeb8f3be/boat.json",
+        "sha256": "93731677321239a1f8705a7717352f8c780f4d15c6a53a2aee8821a8ee4a7844"
+      },
+      "split": "development",
+      "title": "A fast and robust gene knockout method for Salpingoeca rosetta informs the genetics of choanoflagellate multicellular development",
+      "url": "http://dx.doi.org/10.1101/2024.07.13.603360"
+    },
+    {
+      "bibliography": {
+        "bytes": 475,
+        "path": "tests/papers/ee3ad52c-770e-1014-9cf6-fc439995b9bb/paper.bib",
+        "sha256": "1535610725b706851ec31dfd84b4636a292df4d1efb4525d3646cc31c22c2f94"
+      },
+      "dataset": "bioboat",
+      "document_id": "ee3ad52c-770e-1014-9cf6-fc439995b9bb",
+      "doi": "10.1101/2025.01.10.632396",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 44132,
+        "path": "tests/papers/ee3ad52c-770e-1014-9cf6-fc439995b9bb/paper.md",
+        "sha256": "d22700772f916eb18f3a9de267a78e89122a8b7572a4d6cc6ab60e3e4dbdfbff"
+      },
+      "source_records": {
+        "bytes": 92800,
+        "path": "tests/papers/ee3ad52c-770e-1014-9cf6-fc439995b9bb/boat.json",
+        "sha256": "fdac2a91ae5fbd88a4b7847366eb0bf47a98e223f203dfdc95f77902dc8bb0cd"
+      },
+      "split": "development",
+      "title": "Machine learning identifies routine blood tests as accurate predictive measures of pollution-dependent poor cognitive function",
+      "url": "http://dx.doi.org/10.1101/2025.01.10.632396"
+    },
+    {
+      "bibliography": {
+        "bytes": 473,
+        "path": "tests/papers/f82d2818-731c-1014-b6bb-99f7f3e75244/paper.bib",
+        "sha256": "3bed6afd42c2743b547102a9e2805036b1df89906201ec60732bf64d5a9d064c"
+      },
+      "dataset": "bioboat",
+      "document_id": "f82d2818-731c-1014-b6bb-99f7f3e75244",
+      "doi": "10.1101/2025.01.09.632086",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 42624,
+        "path": "tests/papers/f82d2818-731c-1014-b6bb-99f7f3e75244/paper.md",
+        "sha256": "7d048cb0bf94b240c9b8b56e540c903bcc5efcdde9c8984eb306835563a053d3"
+      },
+      "source_records": {
+        "bytes": 55089,
+        "path": "tests/papers/f82d2818-731c-1014-b6bb-99f7f3e75244/boat.json",
+        "sha256": "34cbaf678b7394042c177a278b69da68e540bc0ee5ecc79a3c4056cd541a32c0"
+      },
+      "split": "development",
+      "title": "The N-terminal order-disorder transition is a critical determinant for a metamorphosis of IscU",
+      "url": "http://dx.doi.org/10.1101/2025.01.09.632086"
+    },
+    {
+      "bibliography": {
+        "bytes": 386,
+        "path": "tests/papers/fce5a6e2-7872-1014-aca5-a7a0edb829fd/paper.bib",
+        "sha256": "f405fb855f5366abe970b56c40eef4aa86b8570eb8041907aaa37b1d2012f03f"
+      },
+      "dataset": "bioboat",
+      "document_id": "fce5a6e2-7872-1014-aca5-a7a0edb829fd",
+      "doi": "10.1101/2025.01.15.633128",
+      "license": "CC BY 4.0",
+      "license_evidence": "Selection criterion recorded in manuscript Methods; per-paper license evidence is not preserved locally.",
+      "paper_markdown": {
+        "bytes": 25388,
+        "path": "tests/papers/fce5a6e2-7872-1014-aca5-a7a0edb829fd/paper.md",
+        "sha256": "df6db94f1a7327e672147989d903f7c55f2a32b144ab3f6b472f368fa204ddc4"
+      },
+      "source_records": {
+        "bytes": 59882,
+        "path": "tests/papers/fce5a6e2-7872-1014-aca5-a7a0edb829fd/boat.json",
+        "sha256": "956706c052bcd69b5874b607aa3698d8faae564d392149acc68a636a125cee40"
+      },
+      "split": "development",
+      "title": "An extended Stokes' theorem for spiral paths: applications to rotational flows in Trachelospermum jasminoides stems and flowers",
+      "url": "http://dx.doi.org/10.1101/2025.01.15.633128"
+    }
+  ],
+  "llm_extraction": {
+    "max_output_tokens": 16000,
+    "max_output_tokens_status": "inferred default; executed command not preserved",
+    "model": "claude-sonnet-4-20250514",
+    "model_status": "confirmed by the author on 2026-08-12; the executed command was not preserved",
+    "output_file_mtime_utc_range": [
+      "2026-01-28T11:46:09.097770+00:00",
+      "2026-01-28T12:01:50.388864+00:00"
+    ],
+    "prompt_sha256": "b2feb8442c11be79e1f29ca15c93b9f64cac362e1541e356c5c415c4d012ec35",
+    "prompt_snapshot": "analysis/config/revision_2026/bioboat_extraction_prompt.txt",
+    "prompt_status": "use of this default prompt was confirmed by the author on 2026-08-12; the executed command was not preserved",
+    "raw_api_responses_preserved": false,
+    "tool": "taln extract"
+  },
+  "schema_version": "revision-2026-stage0-v1",
+  "source_collection": {
+    "archive": "s3://biorxiv-src-monthly/Current_Content/",
+    "archive_month": "2025-01",
+    "selection_count": 51,
+    "selection_license": "CC BY 4.0",
+    "selection_rule_status": "recorded in manuscript Methods; selection script and per-paper license evidence not preserved"
+  },
+  "verification_and_filtering": {
+    "benchmark_filter": "Retain rows where source.find(target) equals idx_start, deduplicate expanded rows, require normalization to preserve source/target lengths, shift a preceding ASCII space into the target, and require more than two whitespace-delimited target tokens.",
+    "initial_verification": "taln extract retained targets found as exact contiguous substrings, with a whitespace-normalized fallback.",
+    "quality_control": "Deterministic substring verification only; no preserved independent human quality-control labels."
+  }
+}

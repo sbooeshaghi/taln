@@ -1,0 +1,68 @@
+{
+  "command": [
+    "analysis/scripts/prepare_llm_multigap_extension.py"
+  ],
+  "created_at": "2026-08-16T23:53:03.075905+00:00",
+  "design": "all held-out multi-gap documents, capped per document",
+  "documents": {
+    "bioboat": [
+      "0a8ee49f-73aa-1014-827f-9336b55f8834",
+      "4505a70c-6d8e-1014-a85e-b2b21e21cb5a",
+      "4508df79-6dd8-1014-a4db-a9ddaabd10b9",
+      "56ba88d7-6e7b-1014-aa73-ac0f9899900c",
+      "ba5a5c2f-7653-1014-9cea-f092cacb0178",
+      "bfeb1e3c-7484-1014-95e0-eb3f642f3093",
+      "c5df9d62-74f0-1014-ae74-f5ac9f6a2f18",
+      "cc84fafd-6f50-1014-8e86-84dc10889656",
+      "d1b1589d-7607-1014-85dd-f97a42091be0",
+      "e6cb1aa8-6f25-1014-b08e-bd678952b187"
+    ],
+    "boat": [
+      "boat-document:069be764f05c43f8434e",
+      "boat-document:06ea5454e209a2d117ff",
+      "boat-document:0c01d722102c45a81a1c",
+      "boat-document:1563b5e11b5187309740",
+      "boat-document:1e62ef93d9ac874411b5",
+      "boat-document:375d251b5363bc459eaa",
+      "boat-document:51ca912ed7197d2a6345",
+      "boat-document:57f0c57e61ddf2d0a6cd",
+      "boat-document:616354c526935d5c5771",
+      "boat-document:6f0bdaad909602263875",
+      "boat-document:8b57496630aa9b9b59da",
+      "boat-document:960dc3e1886a5f72475b",
+      "boat-document:9eddc41aead749a7754c",
+      "boat-document:af822e0df38dcffb80cf",
+      "boat-document:b780a1d372c9983bd086",
+      "boat-document:b99999dfd8029d60488a",
+      "boat-document:c26eaacea7e0de5962b6",
+      "boat-document:cb6de9a9e83eecf48d9d",
+      "boat-document:d1f560cd3b6d02a01362",
+      "boat-document:d25dd0476e0df72e3612",
+      "boat-document:d9f8f163b90c9f8d3c43",
+      "boat-document:dcd00991d5bdf73f779e",
+      "boat-document:de9c92814ee10112c0e0",
+      "boat-document:e988b3920cfeaf81d061",
+      "boat-document:eea31c02a81dceae336a",
+      "boat-document:f173c7a878e202941a2c",
+      "boat-document:f848460fbff683097b14"
+    ]
+  },
+  "documents_used": {
+    "bioboat": 10,
+    "boat": 27
+  },
+  "path": "data/revision_2026/llm_baseline/heldout_multigap_tasks.jsonl",
+  "record_cap_per_document": 10,
+  "records": {
+    "bioboat": 100,
+    "boat": 169
+  },
+  "schema_version": "llm-baseline-multigap-manifest-v2",
+  "selection_salt": "revision-2026-llm-multigap-balanced-v1",
+  "sha256": "955c6d00fc5c9c7f6605dd5a44b1c2ba4961a2648f364ca8bbce9dc8330c8e67",
+  "spec": {
+    "path": "analysis/config/revision_2026/llm_baseline_spec.json",
+    "sha256": "f2e41af9cfedb1e86c9bb9ccfb2b9b5655811f0fb2ae484956a911167e876e1d"
+  },
+  "tasks": 2421
+}

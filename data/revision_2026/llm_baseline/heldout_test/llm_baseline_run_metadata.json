@@ -1,0 +1,38 @@
+{
+  "api_calls_this_run": 46,
+  "command": [
+    "analysis/scripts/run_llm_baseline.py",
+    "--phase",
+    "heldout_test",
+    "--resume"
+  ],
+  "ended_at": "2026-08-14T22:09:25.266237+00:00",
+  "estimated_cost_usd_before_run": 0.23,
+  "limit": null,
+  "max_tokens": 1500,
+  "model": "claude-sonnet-4-5-20250929",
+  "phase": "heldout_test",
+  "prompt_path": "analysis/config/revision_2026/llm_baseline_prompt.txt",
+  "prompt_sha256": "7c8852ea9b19cdd4da6a4b39b1597bc130aebe9c5848808fbe3207ca2cf8c3af",
+  "raw_path": "data/revision_2026/llm_baseline/raw/heldout_test_raw_responses.jsonl",
+  "raw_sha256": "15aada9d4083c80febd21a393bf353e3e72cde9b7d0d02a0c63f9ced52d186be",
+  "records_path": "data/revision_2026/llm_baseline/heldout_test/llm_baseline_records.jsonl",
+  "records_sha256": "4f6e45b54503f8fb27a7614655d5e5e7a280960d1e10b589c68652452f400932",
+  "rescore": false,
+  "sample_manifest_sha256": "205cd04ba884e491eb4c97dd24d15ed8eb11e82f04863e52851fe893459f6bf7",
+  "schema_version": "llm-baseline-run-metadata-v1",
+  "software": {
+    "anthropic": "0.75.0",
+    "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "taln": "0.1.0"
+  },
+  "started_at": "2026-08-14T22:09:12.736413+00:00",
+  "summary_path": "data/revision_2026/llm_baseline/heldout_test/llm_baseline_summary.json",
+  "tasks": 2153,
+  "temperature": 0.0,
+  "usage_totals_this_run": {
+    "input_tokens": 28509,
+    "output_tokens": 0
+  }
+}

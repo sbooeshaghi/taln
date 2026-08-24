@@ -1,0 +1,62 @@
+{
+  "candidate_cap": 100000,
+  "code_hashes": {
+    "analysis/config/revision_2026/input_manifest.json": "3fa0af0a5fe318cc9024322131a05b32c8040eda7a946051709daa854c67df07",
+    "analysis/config/revision_2026/split_manifest.json": "d31e308379ac33fbf5d9a1ed377124f632e17d5ffd9280ccd9566c4ec1a84535",
+    "analysis/config/revision_2026/stage1_requirements.txt": "1a10ecf28af06adf573905646a112feee3fd17655c08f40274ad8cdf25584063",
+    "analysis/config/revision_2026/stage1_spec.json": "c2597ee6f75f9a348e8af29d50450863da5a80e86f0e9634739aa428dd94c212",
+    "analysis/scripts/biomedical_tokenizer_comparison.py": "9e4d5d1c38d1c2b9dc33d08c18d1f43b49b68ed44b8d8c56cbfd3924c6f2fbac",
+    "analysis/scripts/common_evaluator.py": "23864d67d0d77a1e9a689710a7578154e18f1c79dde1d598667c357b7820e5ef",
+    "analysis/scripts/run_corrected_baseline_matrix.py": "4553db5c46d736d51fae818c78c38a6f4926fcb8fe97a921a089f2a91da96c84"
+  },
+  "input_hashes": {
+    "data/revision_2026/bioboat_records.jsonl": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a",
+    "data/revision_2026/boat_records.jsonl": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c",
+    "data/revision_2026/llmarkers_inventory.jsonl": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+  },
+  "limit": null,
+  "methods": [
+    "taln",
+    "lcs",
+    "difflib",
+    "semi_global_exact"
+  ],
+  "record_encoding": {
+    "exact": "One result array.",
+    "result_fields": [
+      "full_lexical_support",
+      "complete_token_alignment",
+      "partial_token_overlap",
+      "localization",
+      "candidate_count",
+      "candidate_count_truncated",
+      "unique_source_interval_count",
+      "runtime_ms",
+      "error",
+      "selected_interval",
+      "selected_localization",
+      "candidate_counts_by_variant"
+    ],
+    "sequence": "Nested arrays in tokenizers-major, methods-minor order.",
+    "source_recovery": "Join base_record_id to the frozen input records; source text is not duplicated in matrix rows."
+  },
+  "run_fingerprint": "25142c9a4000488d1170cc9f4a843832596cd6e1640f627281fcf7a6a99a9778",
+  "schema_version": "corrected-baseline-run-config-v1",
+  "software": {
+    "huggingface_hub": "1.20.0",
+    "numpy": "2.4.1",
+    "python": "3.13.1",
+    "tiktoken": "0.12.0",
+    "tokenizers": "0.22.2",
+    "transformers": "5.12.1"
+  },
+  "split": "heldout_test",
+  "tokenizers": [
+    "whitespace",
+    "boundary_stripped_whitespace",
+    "punctuation",
+    "cl100k_base",
+    "scibert",
+    "pubmedbert"
+  ]
+}

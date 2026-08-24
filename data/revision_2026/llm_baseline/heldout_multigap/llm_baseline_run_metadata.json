@@ -1,0 +1,38 @@
+{
+  "api_calls_this_run": 1567,
+  "command": [
+    "analysis/scripts/run_llm_baseline.py",
+    "--phase",
+    "heldout_multigap",
+    "--resume"
+  ],
+  "ended_at": "2026-08-17T00:12:10.006253+00:00",
+  "estimated_cost_usd_before_run": 7.92,
+  "limit": null,
+  "max_tokens": 1500,
+  "model": "claude-sonnet-4-5-20250929",
+  "phase": "heldout_multigap",
+  "prompt_path": "analysis/config/revision_2026/llm_baseline_prompt.txt",
+  "prompt_sha256": "7c8852ea9b19cdd4da6a4b39b1597bc130aebe9c5848808fbe3207ca2cf8c3af",
+  "raw_path": "data/revision_2026/llm_baseline/raw/heldout_multigap_raw_responses.jsonl",
+  "raw_sha256": "25062ed8ee256b6ccc9cd6fb9e37bba9302d2e6fee607bd5c7bb377bc584d6d0",
+  "records_path": "data/revision_2026/llm_baseline/heldout_multigap/llm_baseline_records.jsonl",
+  "records_sha256": "8d22c5567b100b50b498f2ee5ef59e8444c11b28da62305532ca70ab0246fc49",
+  "rescore": false,
+  "sample_manifest_sha256": "e0d41cfc041a86722f1786a7cb57c645e79c15b113ee18b44a3a99cd748b86cb",
+  "schema_version": "llm-baseline-run-metadata-v1",
+  "software": {
+    "anthropic": "0.75.0",
+    "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.1",
+    "taln": "0.1.0"
+  },
+  "started_at": "2026-08-16T23:53:18.429059+00:00",
+  "summary_path": "data/revision_2026/llm_baseline/heldout_multigap/llm_baseline_summary.json",
+  "tasks": 2421,
+  "temperature": 0.0,
+  "usage_totals_this_run": {
+    "input_tokens": 979088,
+    "output_tokens": 535236
+  }
+}

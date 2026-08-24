@@ -1,0 +1,69 @@
+{
+  "command": [
+    "analysis/scripts/prepare_llm_baseline_sample.py"
+  ],
+  "created_at": "2026-08-14T21:09:20.522886+00:00",
+  "development": {
+    "documents": {
+      "bioboat": [],
+      "boat": [
+        "boat-document:f8c29c91b11cc07bf15a",
+        "boat-document:33f4359e6192970cf178",
+        "boat-document:9647eef84daa64f4da8f"
+      ]
+    },
+    "path": "data/revision_2026/llm_baseline/development_sample_tasks.jsonl",
+    "sha256": "ab00d9741a12442f668e773d48df81bcd5ac07c37ad9b2a34898cf0d3888cc05",
+    "tasks": 200
+  },
+  "heldout": {
+    "counts": {
+      "bioboat": {
+        "contiguous": 298,
+        "one_gap": 624,
+        "stage2_severe": 315
+      },
+      "boat": {
+        "contiguous": 363,
+        "one_gap": 533,
+        "stage2_severe": 20
+      }
+    },
+    "documents": {
+      "bioboat": [
+        "56ba88d7-6e7b-1014-aa73-ac0f9899900c",
+        "4508df79-6dd8-1014-a4db-a9ddaabd10b9",
+        "bfeb1e3c-7484-1014-95e0-eb3f642f3093",
+        "0a8ee49f-73aa-1014-827f-9336b55f8834",
+        "d1b1589d-7607-1014-85dd-f97a42091be0"
+      ],
+      "boat": [
+        "boat-document:eb5756b470db1968a1fc",
+        "boat-document:616354c526935d5c5771",
+        "boat-document:e988b3920cfeaf81d061",
+        "boat-document:ffae751ba4b2e53aee46",
+        "boat-document:0c01d722102c45a81a1c"
+      ]
+    },
+    "path": "data/revision_2026/llm_baseline/heldout_sample_tasks.jsonl",
+    "sha256": "0551f84dc335b298d4e208155aa3c70dd27ca33b8d69862d27e0b933f987360d",
+    "tasks": 2153
+  },
+  "input_hashes": {
+    "data/revision_2026/bioboat_records.jsonl": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a",
+    "data/revision_2026/boat_records.jsonl": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c",
+    "data/revision_2026/llmarkers_inventory.jsonl": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+  },
+  "schema_version": "llm-baseline-sample-manifest-v1",
+  "seed": 20260814,
+  "spec": {
+    "path": "analysis/config/revision_2026/llm_baseline_spec.json",
+    "sha256": "a5a2bd9a4ae437ab2b34ce3bf4e6a4c8863deda3ca6308813ef6a94e7726a7cf"
+  },
+  "targets": {
+    "development_tasks": 200,
+    "heldout_contiguous_per_dataset": 250,
+    "heldout_one_gap_per_dataset": 500,
+    "severe_condition": "gaps3_width3"
+  }
+}

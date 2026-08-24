@@ -1,0 +1,6 @@
+prune analysis
+prune data
+prune paper
+prune scripts
+prune submissions
+global-exclude .DS_Store

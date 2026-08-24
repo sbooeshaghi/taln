@@ -1,0 +1,348 @@
+{
+  "command": [
+    "analysis/scripts/prepare_multigap_variants.py"
+  ],
+  "counts": [
+    {
+      "dataset": "bioboat",
+      "gap_count": 0,
+      "gap_width": 0,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "contiguous_control"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 1,
+      "gap_width": 1,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 1,
+      "gap_width": 2,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 1,
+      "gap_width": 3,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 2,
+      "gap_width": 1,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 2,
+      "gap_width": 2,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 2,
+      "gap_width": 3,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 3,
+      "gap_width": 1,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 3,
+      "gap_width": 2,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 3,
+      "gap_width": 3,
+      "rows": 2496,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 0,
+      "gap_width": 0,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "contiguous_control"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 1,
+      "gap_width": 1,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 1,
+      "gap_width": 2,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 1,
+      "gap_width": 3,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 2,
+      "gap_width": 1,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 2,
+      "gap_width": 2,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 2,
+      "gap_width": 3,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 3,
+      "gap_width": 1,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 3,
+      "gap_width": 2,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "bioboat",
+      "gap_count": 3,
+      "gap_width": 3,
+      "rows": 535,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 0,
+      "gap_width": 0,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "contiguous_control"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 1,
+      "gap_width": 1,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 1,
+      "gap_width": 2,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 1,
+      "gap_width": 3,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 2,
+      "gap_width": 1,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 2,
+      "gap_width": 2,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 2,
+      "gap_width": 3,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 3,
+      "gap_width": 1,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 3,
+      "gap_width": 2,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 3,
+      "gap_width": 3,
+      "rows": 2495,
+      "split": "development",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 0,
+      "gap_width": 0,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "contiguous_control"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 1,
+      "gap_width": 1,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 1,
+      "gap_width": 2,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 1,
+      "gap_width": 3,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 2,
+      "gap_width": 1,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 2,
+      "gap_width": 2,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 2,
+      "gap_width": 3,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 3,
+      "gap_width": 1,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 3,
+      "gap_width": 2,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    },
+    {
+      "dataset": "boat",
+      "gap_count": 3,
+      "gap_width": 3,
+      "rows": 337,
+      "split": "heldout_test",
+      "variant_status": "primary_noncontiguous"
+    }
+  ],
+  "generator": {
+    "path": "analysis/scripts/prepare_multigap_variants.py",
+    "sha256": "d0f59e7c36102278dd045aea881d97f671b01d4c1dd246d6851b87babd63d747"
+  },
+  "input_hashes": {
+    "data/revision_2026/bioboat_records.jsonl": "db0c8d05047ac34e5f96d9cfcbee50e8b1e728ac7ef9996cc0835aa262bf338a",
+    "data/revision_2026/boat_records.jsonl": "627dc2b6c79d93ef25f5a75dba583a997cd062331a8398b2f3fcb4dffcca378c",
+    "data/revision_2026/llmarkers_inventory.jsonl": "54e4f12053c3917b98bdcf9b91b83202b0c191686981634949f7ca7ab6254585"
+  },
+  "schema_version": "multigap-variant-manifest-v1",
+  "stage2_spec": {
+    "path": "analysis/config/revision_2026/stage2_spec.json",
+    "sha256": "29bc366dee42081cf2175a12d3d0cfc3d41c9a77aad919583b77a0ae558763ec"
+  },
+  "unique_base_records": 5863,
+  "unique_documents": 300,
+  "variant_file": {
+    "path": "data/revision_2026/stage2/multigap_variants.jsonl",
+    "rows": 58630,
+    "sha256": "985e539fc03c6c9247d980c05aa97fb96a7f6962da3c9f77205e1c392a326782"
+  }
+}
